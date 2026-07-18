@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Izzuddin Ayyash — Web Developer & SEO/GEO Strategist</title>
+  <meta name="description"
+    content="Fresh graduate & SEO enthusiast. Saya membangun custom website yang dioptimasi untuk mendominasi Google SERP, AI Overview, ChatGPT & Gemini. Spesialisasi: SEO, GEO/AEO, Hyper-Local SEO.">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #E2E8F0;
+      --surface: #FFFFFF;
+      --surface-soft: #F8FAFC;
+      --border: #D8E1EC;
+      --accent: #2563EB;
+      --accent-glow: rgba(15, 118, 110, 0.14);
+      --accent-dim: rgba(15, 118, 110, 0.08);
+      --accent-border: rgba(15, 118, 110, 0.22);
+      --text: #000000;
+      --muted: #000000;
+      --link: #2563EB;
+      --gradient-1: #0F766E;
+      --gradient-2: #4F46E5;
+      --shadow-sm: 0 10px 24px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 18px 45px rgba(15, 23, 42, 0.1);
+      --shadow-lg: 0 26px 60px rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 26%),
+        radial-gradient(circle at top right, rgba(79, 70, 229, 0.1), transparent 20%),
+        linear-gradient(180deg, #E2E8F0 0%, #F8FAFC 22%, #EEF2F7 100%);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.18), transparent 60%);
+      z-index: -1;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes subtlePulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    .animate-in {
+      animation: fadeInUp 0.6s ease-out both;
+    }
+
+    .animate-delay-1 {
+      animation-delay: 0.1s;
+    }
+
+    .animate-delay-2 {
+      animation-delay: 0.2s;
+    }
+
+    .animate-delay-3 {
+      animation-delay: 0.3s;
+    }
+
+    .animate-delay-4 {
+      animation-delay: 0.4s;
+    }
+
+    /* NAV */
+    nav {
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(248, 250, 252, 0.78);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+      z-index: 30;
+    }
+
+    .nav-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 700;
+      transition: color 0.15s, opacity 0.15s;
+      opacity: 0.72;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      opacity: 1;
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 1100px;
+      margin: 2rem auto 1.75rem;
+      padding: 4.5rem 3rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.86) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 32px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      right: -110px;
+      top: -140px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.16) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      left: -120px;
+      bottom: -140px;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 72%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      min-height: 34px;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid rgba(37, 99, 235, 0.14);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 .accent {
+      color: var(--accent);
+    }
+
+    h1 .accent-purple {
+      color: var(--gradient-2);
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 1.0625rem;
+      max-width: 620px;
+      margin-bottom: 2.5rem;
+      line-height: 1.85;
+    }
+
+    /* Hero Image Container */
+    .hero-image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      aspect-ratio: 4/5;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.12);
+    }
+
+    .hero-image-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 28px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-image-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 0.875rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+      color: #FFFFFF;
+      padding: 0.9rem 1.9rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Space Grotesk', sans-serif;
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.22);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.03);
+      box-shadow: 0 18px 34px rgba(37, 99, 235, 0.28);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--text);
+      padding: 0.9rem 1.9rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: 'Space Grotesk', sans-serif;
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+      transition: transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .btn-ghost:hover {
+      transform: translateY(-2px);
+      border-color: rgba(37, 99, 235, 0.2);
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+    }
+
+    /* STATS */
+    .stats-bar {
+      padding: 0 2rem 1rem;
+      background: transparent;
+      border: none;
+    }
+
+    .stats-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .stat {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 24px;
+      padding: 1.75rem 1.25rem;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(12px);
+    }
+
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+
+    /* SECTIONS COMMON */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5.5rem 2rem;
+      position: relative;
+    }
+
+    .section-pt0 {
+      padding-top: 0;
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 2.25rem;
+      max-width: 760px;
+    }
+
+    /* ABOUT SECTION */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 860px;
+    }
+
+    .about-text {
+      font-size: 1.0625rem;
+      color: var(--muted);
+      line-height: 1.8;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 28px;
+      padding: 2rem 2rem 2.1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .about-text strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .manifesto-quote {
+      background: linear-gradient(135deg, var(--accent-dim) 0%, rgba(255, 255, 255, 0.96) 100%);
+      border-left: 3px solid var(--accent);
+      border-right: 1px solid var(--border);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      border-radius: 0 18px 18px 0;
+      padding: 1.5rem 2rem;
+      margin-top: 2rem;
+      max-width: 800px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .manifesto-quote p {
+      font-size: 1.1rem;
+      color: var(--text);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 0;
+    }
+
+    /* PIPELINE SECTION */
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      background: transparent;
+      border-radius: 0;
+      overflow: visible;
+      margin-top: 3rem;
+    }
+
+    .pipeline-step {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 22px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pipeline-step:hover {
+      transform: translateY(-4px);
+      border-color: rgba(37, 99, 235, 0.16);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pipeline-step::after {
+      content: '';
+    }
+
+    .pipeline-step:last-child::after {
+      content: '';
+    }
+
+    .pipeline-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .pipeline-icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .pipeline-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      margin-bottom: 0.375rem;
+    }
+
+    .pipeline-desc {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* SKILLS SECTION */
+    .skills-subhead {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-top: 2.5rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.875rem;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+    }
+
+    .skills-subhead--assisted {
+      color: var(--muted);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .skill-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 250, 252, 0.86) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      border-radius: 20px;
+      padding: 1.5rem;
+      transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), rgba(79, 70, 229, 0.6));
+    }
+
+    .skill-card:hover {
+      border-color: rgba(37, 99, 235, 0.18);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .skill-card--assisted {
+      opacity: 0.85;
+    }
+
+    .skill-card--assisted:hover {
+      border-color: var(--border);
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    .skill-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .skill-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .skill-desc {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .skill-badge-assisted {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.15rem 0.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* CASE STUDY — Premium */
+    .case-study {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      border-radius: 30px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .case-study::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
+      z-index: 1;
+    }
+
+    .cs-header {
+      padding: 2.5rem 3rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.38), transparent);
+    }
+
+    .cs-tags {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .cs-tag {
+      background: rgba(148, 163, 184, 0.12);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      color: var(--muted);
+      font-size: 0.6875rem;
+      padding: 0.2rem 0.625rem;
+      border-radius: 20px;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    .cs-tag--accent {
+      border-color: var(--accent-border);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .cs-project-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.375rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cs-project-type {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .cs-live-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.8125rem;
+      text-decoration: none;
+      border: 1px solid var(--accent-border);
+      padding: 0.6rem 1.25rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+      background: rgba(37, 99, 235, 0.05);
+    }
+
+    .cs-live-link:hover {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    /* Narrative */
+    .cs-narrative {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(15, 23, 42, 0.08);
+      border-top: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .cs-narrative-block {
+      padding: 2rem 3rem;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .cs-narrative-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .cs-narrative-block p {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* Metrics */
+    .cs-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(15, 23, 42, 0.08);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .cs-metric {
+      background: rgba(248, 250, 252, 0.92);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .cs-metric-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-metric-unit {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+    }
+
+    /* Approach */
+    .cs-approach {
+      padding: 2.5rem 3rem;
+    }
+
+    .cs-section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cs-approach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .cs-step {
+      background: rgba(248, 250, 252, 0.9);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 18px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cs-step:hover {
+      border-color: var(--accent-border);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cs-step-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.625rem;
+      opacity: 0.7;
+    }
+
+    .cs-step-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-step-desc {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Evidence Gallery */
+    .cs-evidence {
+      padding: 2.5rem 3rem;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(15, 118, 110, 0.05) 0%, transparent 100%);
+    }
+
+    .cs-evidence-subtitle {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      margin-top: -0.5rem;
+    }
+
+    .cs-evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .cs-evidence-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.74);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cs-evidence-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-border);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+
+    .cs-evidence-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-family: 'Space Grotesk', sans-serif;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .cs-evidence-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cs-evidence-info {
+      padding: 0.875rem 1rem;
+    }
+
+    .cs-evidence-query {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.8125rem;
+      margin-bottom: 0.25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cs-evidence-platform {
+      font-size: 0.6875rem;
+      color: var(--accent);
+      font-weight: 500;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* CREDENTIALS */
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .cred-item {
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(255, 255, 255, 0.74);
+      border-radius: 28px;
+      padding: 1.6rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cred-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 1.0625rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .cred-meta {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .cred-stack {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .cred-entry {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 18px;
+      padding: 1rem 1.1rem;
+    }
+
+    .cred-period {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0.2rem 0.65rem;
+      margin-bottom: 0.75rem;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid rgba(37, 99, 235, 0.14);
+      color: var(--accent);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .cred-degree {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .cred-school {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.375rem;
+    }
+
+    .cred-detail {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+      line-height: 1.6;
+    }
+
+    .cred-detail:last-child {
+      margin-bottom: 0;
+    }
+
+    .cert-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .cert-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .cert-link:hover .cred-entry {
+      border-color: rgba(37, 99, 235, 0.22);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .cert-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      line-height: 1.5;
+    }
+
+    .cert-issuer {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .cert-open {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* CONTACT / FOOTER */
+    footer {
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+      padding: 5rem 2rem;
+      text-align: center;
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.18), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(79, 70, 229, 0.16), transparent 24%),
+        linear-gradient(135deg, #EAF2FF 0%, #F8FAFC 42%, #EEF4FF 100%);
+      border: 1px solid rgba(255, 255, 255, 0.88);
+      border-radius: 32px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.52), transparent 36%);
+      pointer-events: none;
+    }
+
+    .footer-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-sub {
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 2.25rem;
+      font-size: 0.98rem;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-actions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 0.95rem;
+      text-align: left;
+      text-decoration: none;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.86);
+      border-radius: 22px;
+      padding: 1.15rem 1.2rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+      backdrop-filter: blur(12px);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(37, 99, 235, 0.18);
+      background: rgba(255, 255, 255, 0.94);
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.14), rgba(79, 70, 229, 0.1));
+      color: var(--accent);
+      border: 1px solid rgba(37, 99, 235, 0.12);
+    }
+
+    .contact-icon svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    .contact-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      min-width: 0;
+    }
+
+    .contact-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .footer-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* RESPONSIVENESS */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+        padding: 3.25rem 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .hero-content {
+        align-items: center;
+      }
+
+      .eyebrow {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-sub {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-group {
+        justify-content: center;
+      }
+
+      .stats-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .pipeline {
+        grid-template-columns: 1fr;
+      }
+
+      .pipeline-step::after {
+        content: '';
+      }
+
+      .cs-header {
+        padding: 2rem;
+        flex-direction: column;
+      }
+
+      .cs-narrative {
+        grid-template-columns: 1fr;
+      }
+
+      .cs-narrative-block {
+        padding: 1.5rem 2rem;
+      }
+
+      .cs-metrics {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cs-approach {
+        padding: 2rem;
+      }
+
+      .cs-approach-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cs-evidence {
+        padding: 2rem;
+      }
+
+      .cs-evidence-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cred-item,
+      footer {
+        border-radius: 24px;
+      }
+
+      .contact-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      nav {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .hero,
+      .section,
+      .stats-bar,
+      footer {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .cs-metrics {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cs-evidence-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat,
+      .skill-card,
+      .cred-item {
+        border-radius: 20px;
+      }
+
+      .contact-card {
+        border-radius: 18px;
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-name">Izzuddin Ayyash</div>
+    <ul class="nav-links">
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#keahlian">Keahlian</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="hero-content">
+      <div class="eyebrow animate-in">Technical SEO & Developer</div>
+      <h1 class="animate-in animate-delay-1">Halo, Saya <span class="accent">Izzuddin Ayyash</span></h1>
+      <p class="hero-sub animate-in animate-delay-2">
+        Saya mengombinasikan <b>kode</b> dan <b>strategi pencarian</b> untuk membantu brand lebih mudah ditemukan lewat apa yang sudah mereka kerjakan. Sebagai <b>SEO Team of One</b>, saya senang mencari celah tersembunyi yang terlewat oleh kompetitor, dengan kemampuan yang mencakup perancangan strategi makro hingga penulisan baris kodenya langsung.
+      </p>
+       <div class="cta-group animate-in animate-delay-3">
+        <a href="#portfolio" class="btn-primary">Lihat Hasil Kerja</a>
+        <a href="#kontak" class="btn-ghost">Hubungi Saya</a>
+      </div>
+    </div>
+    <div class="hero-image-container">
+      <div class="hero-image-wrapper animate-in animate-delay-4">
+        <img src="images/Izzuddin_Ayyash.jpg" alt="Izzuddin Ayyash" fetchpriority="high" decoding="async">
+      </div>
+    </div>
+  </header>
+
+  <section class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-num">Full-Stack</div>
+        <div class="stat-label">Web Development (AI-Powered)</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">SEO + GEO</div>
+        <div class="stat-label">Search & AI Optimization</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Strategic</div>
+        <div class="stat-label">Research-Driven Approach</div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="tentang">
+    <div class="eyebrow">Tentang Saya</div>
+    <h2>Efisiensi Berbasis AI, Strategi Berbasis Data.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+
+        <p style="margin-bottom: 1.5rem;">
+          Selama satu tahun terakhir, saya mendalami dinamika bagaimana algoritma mesin pencari dan
+          AI terus berubah dalam menentukan konten yang ditampilkan ke pengguna. Ketertarikan ini
+          yang membuat saya terbiasa <strong>membangun website yang tidak hanya dioptimasi sekali,
+          tetapi terus diperbarui mengikuti perkembangan algoritma terbaru.</strong>
+        </p>
+        <p style="margin-bottom: 1.5rem;">
+          Alur kerja saya dimulai dari <strong>brand discovery</strong>, menggali informasi dan aset
+          yang sudah dimiliki bisnis, lalu mengubahnya menjadi sinyal kredibilitas yang kuat di
+          mata mesin pencari. Dari situ, saya merancang arsitektur website, menulis strategi
+          konten, dan memanfaatkan AI sebagai akselerator eksekusi teknis.
+        </p>
+       <p>
+          Fokus saya saat ini tertuju pada <strong>GEO (Generative Engine Optimization) dan AEO (Answer Engine Optimization)</strong>. Kehadiran AI Overview membuktikan bahwa ruang pencarian kini dinamis dan tidak lagi didominasi oleh pemain lama. Saya tertantang untuk <strong>mempelajari dan menguasai celah baru ini sejak awal guna menghadirkan keunggulan kompetitif bagi brand.</strong>
+        </p>
+
+      </div>
+    </div>
+    </div>
+
+    <!-- PIPELINE: Full Service -->
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="pipeline-num">Tahap 01</div>
+        <div class="pipeline-icon">🔍</div>
+        <div class="pipeline-title">Brand Discovery & Riset</div>
+        <div class="pipeline-desc">Menggali aset bisnis, riset tren pasar, dan membedah kelemahan kompetitor langsung di
+          SERP.</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-num">Tahap 02</div>
+        <div class="pipeline-icon">💻</div>
+        <div class="pipeline-title">Build Website</div>
+        <div class="pipeline-desc">Custom website yang memberikan kendali penuh atas technical SEO dan skalabilitas
+          konten lokal</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-num">Tahap 03</div>
+        <div class="pipeline-icon">📈</div>
+        <div class="pipeline-title">Optimasi SEO</div>
+        <div class="pipeline-desc">On-page SEO, arsitektur internal linking, hyper-local SEO, dan content strategy
+          berbasis intent</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-num">Tahap 04</div>
+        <div class="pipeline-icon">🤖</div>
+        <div class="pipeline-title">GEO & AEO</div>
+        <div class="pipeline-desc">Framing konten untuk disitasi AI Overview, ChatGPT & Gemini</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEAHLIAN SECTION -->
+  <section class="section section-pt0" id="keahlian">
+    <div class="eyebrow">Keahlian</div>
+    <h2>Spesialisasi & Kapabilitas</h2>
+
+    <div class="skills-subhead">Dikerjakan Mandiri</div>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-icon">🎯</div>
+        <div class="skill-name">SEO & GEO/AEO Strategy</div>
+        <div class="skill-desc">Merancang strategi menyeluruh agar website tidak hanya ranking di Google SERP, tapi juga
+          disitasi oleh AI Overview, ChatGPT, dan Gemini melalui pendekatan GEO & AEO.</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">📍</div>
+        <div class="skill-name">Hyper-Local SEO</div>
+        <div class="skill-desc">Membangun halaman berbasis kota yang mendominasi pencarian lokal — memastikan bisnis
+          ditemukan oleh user di setiap kota target tanpa kanibalisasi antar halaman.</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🔍</div>
+        <div class="skill-name">Competitive Gap Analysis</div>
+        <div class="skill-desc">Menganalisis kelemahan kompetitor langsung di SERP dan mengubah celah yang terlewat
+          menjadi peluang dominasi organik.</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">📋</div>
+        <div class="skill-name">Content Strategy</div>
+        <div class="skill-desc">Merancang struktur konten berbasis intent pengguna — dari pemetaan topik cluster hingga
+          arsitektur informasi yang mendukung pertumbuhan jangka panjang.</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">✍️</div>
+        <div class="skill-name">Content Writing</div>
+        <div class="skill-desc">Menulis konten halaman yang persuasif dan intent-driven — framing yang tepat untuk
+          menarik klik, membangun kepercayaan, dan mendorong konversi.</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🔗</div>
+        <div class="skill-name">Internal Linking Architecture</div>
+        <div class="skill-desc">Mendesain struktur link antar halaman untuk mendistribusikan authority secara efisien
+          dan memperkuat sinyal relevansi di mata mesin pencari.</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <div class="skill-name">Google Search Console</div>
+        <div class="skill-desc">Melacak performa keyword, mengevaluasi kesehatan teknis website, dan memastikan
+          efisiensi indexing untuk keputusan optimasi berbasis data.</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">📈</div>
+        <div class="skill-name">Google Analytics</div>
+        <div class="skill-desc">Membaca data traffic dan perilaku pengguna untuk memvalidasi performa konten dan
+          menentukan arah strategi selanjutnya.</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🔧</div>
+        <div class="skill-name">Ahrefs</div>
+        <div class="skill-desc">Riset keyword, audit kesehatan domain, dan pemetaan profil kompetitor untuk
+          mengidentifikasi peluang pertumbuhan organik.</div>
+      </div>
+
+    </div>
+
+    <div class="skills-subhead skills-subhead--assisted">Akselerasi Dengan Bantuan AI</div>
+    <div class="skills-grid">
+
+      <div class="skill-card skill-card--assisted">
+        <div class="skill-icon">💻</div>
+        <div class="skill-name">Web Development <span class="skill-badge-assisted">AI-Assisted</span></div>
+        <div class="skill-desc">Merancang arsitektur dan membangun website custom — logika navigasi, struktur halaman,
+          dan skalabilitas konten — dengan AI sebagai akselerator penulisan kode (Laravel/Blade, HTML, CSS, JS).</div>
+      </div>
+
+      <div class="skill-card skill-card--assisted">
+        <div class="skill-icon">⚙️</div>
+        <div class="skill-name">Technical SEO & Infrastructure <span class="skill-badge-assisted">AI-Assisted</span>
+        </div>
+        <div class="skill-desc">Merancang infrastruktur teknis untuk website berskala besar — arsitektur URL
+          geo-targeted, dynamic sitemap, crawl budget management, dan multi-type schema strategy lintas ratusan halaman.
+          Eksekusi kode dipercepat dengan AI.</div>
+      </div>
+      <div class="skill-card skill-card--assisted">
+        <div class="skill-icon">🧪</div>
+        <div class="skill-name">Deep Data Research <span class="skill-badge-assisted">AI-Assisted</span></div>
+        <div class="skill-desc">Riset berskala besar pada tren industri, pola pencarian, dan analisis kompetitor —
+          dipercepat dengan AI untuk pengambilan keputusan strategis yang lebih cepat.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PORTFOLIO SECTION -->
+  <section class="section" id="portfolio">
+    <div class="eyebrow">Portfolio / Case Study</div>
+    <h2>Proyek yang Pernah Saya Tangani</h2>
+
+    <div class="case-study">
+      <!-- Header -->
+      <div class="cs-header">
+        <div>
+          <div class="cs-tags">
+            <span class="cs-tag cs-tag--accent">GEO/AEO</span>
+            <span class="cs-tag">Full-Stack Development</span>
+            <span class="cs-tag">SEO Architecture</span>
+            <span class="cs-tag">Hyper-Local SEO</span>
+            <span class="cs-tag">Content Strategy</span>
+          </div>
+          <div class="cs-project-name">Kawan Sport Indonesia</div>
+          <div class="cs-project-type">Spesialis Jasa Pemasangan & Produk Lantai Lapangan Olahraga</div>
+        </div>
+        <a href="https://kawansportindonesia.com" class="cs-live-link" target="_blank" rel="noopener">Kunjungi Website
+          ↗</a>
+      </div>
+
+      <!-- Narrative -->
+      <div class="cs-narrative">
+        <div class="cs-narrative-block">
+          <div class="cs-narrative-label">Tantangan</div>
+          <p>Bisnis tanpa kehadiran digital yang ingin mendominasi pasar produk & jasa pemasangan lantai lapangan
+            olahraga secara online — di tengah kompetitor yang sudah lebih dulu mapan di Google.</p>
+        </div>
+        <div class="cs-narrative-block">
+          <div class="cs-narrative-label">Peran Saya</div>
+          <p>Full ownership dari nol: riset pasar, strategi SEO, arsitektur website, development, konten, hingga
+            penargetan AI — semuanya dibangun dengan pendekatan AI-accelerated.</p>
+        </div>
+      </div>
+
+      <!-- Metrics -->
+      <div class="cs-metrics">
+        <div class="cs-metric">
+          <div class="cs-metric-value">3/5</div>
+          <div class="cs-metric-unit">Kategori Olahraga<br>Masuk SERP</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-value">
+            < 2 Bln</div>
+              <div class="cs-metric-unit">Waktu Mencapai<br>Hasil Awal</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-value">3</div>
+            <div class="cs-metric-unit">Platform AI<br>Menyitasi Brand</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-value">Multi-Kota</div>
+            <div class="cs-metric-unit">Dominasi Pencarian<br>"Terdekat"</div>
+          </div>
+        </div>
+
+        <!-- Approach -->
+        <div class="cs-approach">
+          <div class="cs-section-title">Yang Saya Bangun & Kerjakan</div>
+          <div class="cs-approach-grid">
+            <div class="cs-step">
+              <div class="cs-step-num">Tahap 01</div>
+              <div class="cs-step-title">Riset & Analisis Kompetitif</div>
+              <div class="cs-step-desc">Mengidentifikasi celah di strategi digital kompetitor — keyword yang terlewat,
+                konten yang belum digarap, dan peluang niche yang bisa direbut.</div>
+            </div>
+            <div class="cs-step">
+              <div class="cs-step-num">Tahap 02</div>
+              <div class="cs-step-title">Arsitektur Website & Content Siloing</div>
+              <div class="cs-step-desc">Merancang arsitektur URL geo-targeted dan content siloing — struktur yang
+                memisahkan topik per kategori untuk memaksimalkan relevansi di mata mesin pencari.</div>
+            </div>
+            <div class="cs-step">
+              <div class="cs-step-num">Tahap 03</div>
+              <div class="cs-step-title">Web Development (AI-Assisted)</div>
+              <div class="cs-step-desc">Membangun website custom dengan Laravel/Blade — dynamic routing, logika
+                navigasi, dan skalabilitas konten — dengan AI sebagai akselerator penulisan kode.</div>
+            </div>
+            <div class="cs-step">
+              <div class="cs-step-num">Tahap 04</div>
+              <div class="cs-step-title">Technical SEO & Infrastructure</div>
+              <div class="cs-step-desc">Implementasi multi-type schema strategy, dynamic sitemap, arsitektur URL
+                geo-targeted, dan crawl budget management untuk ratusan halaman.</div>
+            </div>
+            <div class="cs-step">
+              <div class="cs-step-num">Tahap 05</div>
+              <div class="cs-step-title">Strategi Konten & Copywriting</div>
+              <div class="cs-step-desc">Menulis konten intent-driven dengan framing yang menarik klik. Contoh: "Jual
+                karpet badminton BWF" → "Lihat hasil pemasangan dan harga terbaru di sini."</div>
+            </div>
+            <div class="cs-step">
+              <div class="cs-step-num">Tahap 06</div>
+              <div class="cs-step-title">Internal Linking Architecture</div>
+              <div class="cs-step-desc">Mendesain struktur link antar halaman untuk mendistribusikan authority secara
+                efisien dan memperkuat sinyal relevansi di setiap cluster konten.</div>
+            </div>
+            <div class="cs-step">
+              <div class="cs-step-num">Tahap 07</div>
+              <div class="cs-step-title">Hyper-Local SEO ("Terdekat")</div>
+              <div class="cs-step-desc">Membangun halaman spesifik kota yang mendominasi pencarian "terdekat" —
+                memastikan bisnis ditemukan di setiap lokasi target tanpa kanibalisasi halaman.</div>
+            </div>
+            <div class="cs-step">
+              <div class="cs-step-num">Tahap 08</div>
+              <div class="cs-step-title">GEO/AEO Strategy</div>
+              <div class="cs-step-desc">Mengembangkan dan menguji hipotesis framing konten agar disitasi oleh AI
+                generatif — berhasil muncul di Google AI Overview, ChatGPT, dan Gemini.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evidence Gallery -->
+        <div class="cs-evidence">
+          <div class="cs-section-title">Bukti: Disitasi AI di Pencarian High-Volume</div>
+          <div class="cs-evidence-subtitle">Screenshot pencarian yang menunjukkan brand KSI disitasi oleh platform AI
+            pada keyword dengan volume pencarian tinggi.</div>
+          <div class="cs-evidence-grid">
+            <div class="cs-evidence-card">
+              <div class="cs-evidence-img">
+                <!-- Ganti dengan: <img src="images/ss-harga-karpet-badminton.png" alt="Harga Karpet Badminton - AI Citation"> -->
+                📷 Screenshot
+              </div>
+              <div class="cs-evidence-info">
+                <div class="cs-evidence-query">"Harga Karpet Badminton"</div>
+                <div class="cs-evidence-platform">✦ Disitasi oleh AI</div>
+              </div>
+            </div>
+            <div class="cs-evidence-card">
+              <div class="cs-evidence-img">
+                <!-- Ganti dengan: <img src="images/ss-jual-karpet-badminton-terdekat.png" alt="Jual Karpet Badminton Terdekat - AI Citation"> -->
+                📷 Screenshot
+              </div>
+              <div class="cs-evidence-info">
+                <div class="cs-evidence-query">"Jual Karpet Badminton Terdekat"</div>
+                <div class="cs-evidence-platform">✦ Disitasi oleh AI</div>
+              </div>
+            </div>
+            <div class="cs-evidence-card">
+              <div class="cs-evidence-img">
+                <!-- Ganti dengan: <img src="images/ss-jasa-pemasangan-karpet-badminton.png" alt="Jasa Pemasangan Karpet Badminton - AI Citation"> -->
+                📷 Screenshot
+              </div>
+              <div class="cs-evidence-info">
+                <div class="cs-evidence-query">"Jasa Pemasangan Karpet Badminton"</div>
+                <div class="cs-evidence-platform">✦ Disitasi oleh AI</div>
+              </div>
+            </div>
+            <div class="cs-evidence-card">
+              <div class="cs-evidence-img">
+                <!-- Ganti dengan: <img src="images/ss-jual-vinyl-basket.png" alt="Jual Vinyl Basket - AI Citation"> -->
+                📷 Screenshot
+              </div>
+              <div class="cs-evidence-info">
+                <div class="cs-evidence-query">"Jual Vinyl Basket"</div>
+                <div class="cs-evidence-platform">✦ Disitasi oleh AI</div>
+              </div>
+            </div>
+            <div class="cs-evidence-card">
+              <div class="cs-evidence-img">
+                <!-- Ganti dengan: <img src="images/ss-kontraktor-pickleball.png" alt="Kontraktor Pickleball - AI Citation"> -->
+                📷 Screenshot
+              </div>
+              <div class="cs-evidence-info">
+                <div class="cs-evidence-query">"Kontraktor Pickleball"</div>
+                <div class="cs-evidence-platform">✦ Disitasi oleh AI</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- CREDENTIALS SECTION -->
+  <section class="section" id="credentials">
+    <div class="eyebrow">Kredensial</div>
+    <h2>Pendidikan & Sertifikasi</h2>
+    <div class="credentials-grid">
+      <div class="cred-item">
+        <div class="cred-title">Pendidikan Formal</div>
+        <div class="cred-meta">Riwayat pendidikan yang relevan dengan pengembangan web, teknologi, dan dasar pemahaman bisnis.</div>
+        <div class="cred-stack">
+          <div class="cred-entry">
+            <div class="cred-period">2021-2026</div>
+            <div class="cred-degree">S1 Teknik Informatika</div>
+            <div class="cred-school">STT Terpadu Nurul Fikri · IPK 3.60 / 4.00</div>
+            <div class="cred-detail">Berfokus pada pengembangan website dan kecerdasan artifisial</div>
+          </div>
+          <div class="cred-entry">
+            <div class="cred-period">2017-2020</div>
+            <div class="cred-degree">SMK Negri 1 Cibinong</div>
+            <div class="cred-school">Bisnis Kontruksi & Properti</div>
+            <div class="cred-detail">Latar belakang bisnis properti dan lulus dengan baik</div>
+          </div>
+        </div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-title">Sertifikasi & Pelatihan</div>
+        <div class="cred-meta">Dokumen sertifikasi teknis.</div>
+        <div class="cred-stack">
+          <a class="cert-link" href="sertifikasi/Building_AI_Solutions_Using_Advanced_Algorithms_and_Open_Source_Frameworks_Badge20230828-28-d8hmol.pdf" target="_blank" rel="noopener">
+            <div class="cred-entry">
+              <div class="cred-period">Sertifikat 01</div>
+              <div class="cert-title">Building AI Solutions Using Advanced Algorithms and Open Source Frameworks</div>
+              <div class="cert-issuer">IBM / Technical Badge</div>
+              <div class="cert-open">Buka Sertifikat</div>
+            </div>
+          </a>
+          <a class="cert-link" href="sertifikasi/Building_Trustworthy_AI_Enterprise_Solutions_Badge20230828-28-29epxi.pdf" target="_blank" rel="noopener">
+            <div class="cred-entry">
+              <div class="cred-period">Sertifikat 02</div>
+              <div class="cert-title">Building Trustworthy AI Enterprise Solutions</div>
+              <div class="cert-issuer">IBM / Technical Badge</div>
+              <div class="cert-open">Buka Sertifikat</div>
+            </div>
+          </a>
+          <a class="cert-link" href="sertifikasi/Enterprise_Security_in_Practice_Badge20230907-28-yux28o.pdf" target="_blank" rel="noopener">
+            <div class="cred-entry">
+              <div class="cred-period">Sertifikat 03</div>
+              <div class="cert-title">Enterprise Security in Practice</div>
+              <div class="cert-issuer">IBM / Technical Badge</div>
+              <div class="cert-open">Buka Sertifikat</div>
+            </div>
+          </a>
+          <a class="cert-link" href="sertifikasi/Getting_Started_with_Enterprise_grade_AI_Badge20230822-28-8h4b8n.pdf" target="_blank" rel="noopener">
+            <div class="cred-entry">
+              <div class="cred-period">Sertifikat 04</div>
+              <div class="cert-title">Getting Started with Enterprise-grade AI</div>
+              <div class="cert-issuer">IBM / Technical Badge</div>
+              <div class="cert-open">Buka Sertifikat</div>
+            </div>
+          </a>
+          <a class="cert-link" href="sertifikasi/Getting_Started_with_Threat_Intelligence_and_Hunting_Badge20230831-36-mcblod.pdf" target="_blank" rel="noopener">
+            <div class="cred-entry">
+              <div class="cred-period">Sertifikat 05</div>
+              <div class="cert-title">Getting Started with Threat Intelligence and Hunting</div>
+              <div class="cert-issuer">IBM / Technical Badge</div>
+              <div class="cert-open">Buka Sertifikat</div>
+            </div>
+          </a>
+          <a class="cert-link" href="sertifikasi/Python%20for%20Data%20Science%20-%20Izzuddin%20Ayyash.pdf" target="_blank" rel="noopener">
+            <div class="cred-entry">
+              <div class="cred-period">Sertifikat 06</div>
+              <div class="cert-title">Python for Data Science</div>
+              <div class="cert-issuer">Technical Certificate</div>
+              <div class="cert-open">Buka Sertifikat</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="kontak">
+    <div class="footer-title">Mari Bangun Sesuatu Bersama</div>
+    <p class="footer-sub">Saya terbuka untuk kesempatan kerja full-time, proyek freelance, maupun kolaborasi strategis
+      di bidang Web Development & SEO.</p>
+    <div class="contact-actions">
+      <a href="mailto:izzudinayyash4@gmail.com" class="contact-card">
+        <span class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6.5h16A1.5 1.5 0 0 1 21.5 8v8A1.5 1.5 0 0 1 20 17.5H4A1.5 1.5 0 0 1 2.5 16V8A1.5 1.5 0 0 1 4 6.5Z" />
+            <path d="m3 8 9 6 9-6" />
+          </svg>
+        </span>
+        <span class="contact-copy">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">izzudinayyash4@gmail.com</span>
+        </span>
+      </a>
+      <a href="https://linkedin.com/in/username-lo" class="contact-card" target="_blank" rel="noopener">
+        <span class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.94 8.5a1.56 1.56 0 1 1 0-3.12 1.56 1.56 0 0 1 0 3.12ZM5.6 9.75h2.68v8.65H5.6V9.75Zm4.36 0h2.56v1.18h.04c.36-.68 1.23-1.4 2.53-1.4 2.7 0 3.2 1.77 3.2 4.07v4.8h-2.67v-4.25c0-1.01-.02-2.31-1.4-2.31-1.4 0-1.62 1.1-1.62 2.24v4.32H9.96V9.75Z" />
+          </svg>
+        </span>
+        <span class="contact-copy">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">LinkedIn Profile</span>
+        </span>
+      </a>
+      <a href="https://wa.me/6285156384180" class="contact-card" target="_blank" rel="noopener">
+        <span class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.25a9.73 9.73 0 0 0-8.3 14.8L2.25 21.75l4.82-1.42A9.75 9.75 0 1 0 12 2.25Zm0 17.7a7.88 7.88 0 0 1-4.02-1.1l-.29-.17-2.86.84.87-2.78-.19-.3a7.87 7.87 0 1 1 6.49 3.51Zm4.33-5.91c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.17-.71-.63-1.2-1.41-1.34-1.65-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3s-.84.82-.84 2 .86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.65.58.25 1.03.39 1.38.5.58.18 1.1.16 1.52.1.46-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z" />
+          </svg>
+        </span>
+        <span class="contact-copy">
+          <span class="contact-label">WhatsApp</span>
+          <span class="contact-value">085156384180</span>
+        </span>
+      </a>
+    </div>
+    <p class="footer-meta">&copy; 2026 Izzuddin Ayyash. All rights reserved.</p>
+  </footer>
+
+</body>
+
+</html>
