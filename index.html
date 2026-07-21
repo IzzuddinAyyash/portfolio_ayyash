@@ -369,7 +369,7 @@
 
     .stats-inner {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       background: var(--surface);
       border: 1px solid var(--border);
@@ -1261,21 +1261,21 @@
   </header>
 
   <section class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat">
-      <div class="stat-num">Full-Stack</div>
-      <div class="stat-label">Web Development (AI-Powered)</div>
+    <div class="stats-inner">
+      <div class="stat-card">
+        <div class="stat-num">Full-Stack</div>
+        <div class="stat-label">Web Development (AI-Powered)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">SEO + GEO</div>
+        <div class="stat-label">Search & AI Optimization</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">Strategic</div>
+        <div class="stat-label">Research-Driven Approach</div>
+      </div>
     </div>
-    <div class="stat">
-      <div class="stat-num">SEO + GEO</div>
-      <div class="stat-label">Search & AI Optimization</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">Strategic</div>
-      <div class="stat-label">Research-Driven Approach</div>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- ABOUT SECTION -->
   <section class="main-section reveal" id="tentang">
@@ -1285,7 +1285,7 @@
         <p>
           Selama satu tahun terakhir, saya mendalami dinamika evolusi algoritma search engine. Kehadiran generative AI
           mengubah cara audiens mencari informasi, dan itu menginspirasi saya untuk fokus pada <strong>GEO (Generative
-            Engine Optimization)</strong> dan <strong>AEO (Answer Engine Optimization)</strong> sejak dini.
+            Engine Optimization)</strong> dan <strong>AEO (Answer Engine Optimization)</strong>.
         </p>
         <p>
           Saya terbiasa membangun custom website yang dioptimasi secara dinamis. Alur kerja saya mencakup <strong>Brand
@@ -1293,8 +1293,8 @@
           merilis kode backend yang tangguh untuk menghasilkan halaman berskala besar.
         </p>
         <div class="manifesto-quote">
-  <p>"Efisiensi saya dapatkan dari AI, tapi setiap strategi tetap lahir dari data."</p>
-</div>
+          <p>"Efisiensi saya dapatkan dari AI, tapi setiap strategi tetap lahir dari data."</p>
+        </div>
       </div>
 
       <div class="pipeline-vertical">
@@ -1315,9 +1315,10 @@
         <div class="pipeline-item">
           <div class="pipeline-icon">📈</div>
           <div class="pipeline-info">
-          <h4>03. Strategic SEO & GEO</h4>
-          <p>Menguatkan entity signal brand lewat pendekatan E-E-A-T, serta membangun unique point of view pada setiap konten agar lebih mudah dikutip AI search engines dibanding pendekatan generik kompetitor.</p>
-        </div>
+            <h4>03. Strategic SEO & GEO</h4>
+            <p>Menguatkan entity signal brand lewat pendekatan E-E-A-T, serta membangun unique point of view pada setiap
+              konten agar lebih mudah dikutip AI search engines dibanding pendekatan generik kompetitor.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1332,10 +1333,10 @@
       <div class="cs-header">
         <div>
           <div class="cs-tags">
-            <span class="cs-tag highlight">Laravel Backend</span>
-            <span class="cs-tag highlight">SQLite DB</span>
-            <span class="cs-tag">GEO/AEO Strategy</span>
+            <span class="cs-tag highlight">E-E-A-T Signal Engineering</span>
+            <span class="cs-tag highlight">GEO/AEO Strategy</span>
             <span class="cs-tag">Hyper-Local SEO</span>
+            <span class="cs-tag">Full-Stack Development</span>
           </div>
           <h3 class="cs-title">Kawan Sport Indonesia</h3>
           <p class="cs-subtitle">Spesialis Jasa Pemasangan & Supplier Lantai Lapangan Olahraga</p>
@@ -1348,13 +1349,15 @@
       <div class="cs-meta-grid">
         <div class="cs-meta-block">
           <span class="cs-meta-label">Tantangan Bisnis</span>
-          <p>Membangun otoritas digital baru dari nol untuk bisnis jasa pemasangan & produk lantai lapangan olahraga. Harus mampu bersaing
+          <p>Membangun otoritas digital baru dari nol untuk bisnis jasa pemasangan & produk lantai lapangan olahraga.
+            Harus mampu bersaing
             dengan kompetitor lama di Google SERP pada ratusan wilayah di Indonesia secara efisien tanpa overloading
             resource server.</p>
         </div>
         <div class="cs-meta-block">
           <span class="cs-meta-label">Peran & Kepemilikan</span>
-          <p>Full ownership sebagai satu-satunya developer dan SEO strategist (Team of One). Membangun Interactive UI, arsitektur
+          <p>Full ownership sebagai satu-satunya developer dan SEO strategist (Team of One). Membangun Interactive UI,
+            arsitektur
             backend, skema database, optimalisasi programatik, dan implementasi strategi GEO untuk memicu rujukan AI.
           </p>
         </div>
@@ -1824,6 +1827,7 @@
     const runCounters = () => {
       const counters = document.querySelectorAll('.stat-num');
       counters.forEach(counter => {
+        if (!counter.hasAttribute('data-target')) return;
         const target = +counter.getAttribute('data-target');
         const duration = 1200; // ms
         const startTime = performance.now();
