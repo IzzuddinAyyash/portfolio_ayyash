@@ -6,266 +6,331 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Izzuddin Ayyash — Web Developer & SEO/GEO Strategist</title>
   <meta name="description"
-    content="Fresh graduate & SEO enthusiast. Saya membangun custom website yang dioptimasi untuk mendominasi Google SERP, AI Overview, ChatGPT & Gemini. Spesialisasi: SEO, GEO/AEO, Hyper-Local SEO.">
+    content="Fresh graduate & SEO/GEO Strategist. Saya membangun custom website berkinerja tinggi yang dioptimasi untuk mendominasi Google SERP, AI Overview, ChatGPT & Gemini.">
+  <script>
+    document.documentElement.classList.add('js-enabled');
+  </script>
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
     rel="stylesheet">
   <style>
     :root {
-      --bg: #E2E8F0;
-      --surface: #FFFFFF;
-      --surface-soft: #F8FAFC;
-      --border: #D8E1EC;
-      --accent: #2563EB;
-      --accent-glow: rgba(15, 118, 110, 0.14);
-      --accent-dim: rgba(15, 118, 110, 0.08);
-      --accent-border: rgba(15, 118, 110, 0.22);
-      --text: #000000;
-      --muted: #000000;
-      --link: #2563EB;
-      --gradient-1: #0F766E;
-      --gradient-2: #4F46E5;
-      --shadow-sm: 0 10px 24px rgba(15, 23, 42, 0.06);
-      --shadow-md: 0 18px 45px rgba(15, 23, 42, 0.1);
-      --shadow-lg: 0 26px 60px rgba(15, 23, 42, 0.12);
+      --bg: #0b1120;
+      /* Dark slate blue, premium and much easier on the eyes than pure black */
+      --bg-gradient: radial-gradient(circle at top left, rgba(6, 182, 212, 0.08), transparent 50%),
+        radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.08), transparent 50%),
+        #0b1120;
+      --surface: #111827;
+      /* Solid high-contrast slate-900 container background */
+      --surface-hover: #1f2937;
+      /* slate-800 for hover state */
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(6, 182, 212, 0.4);
+      --accent: #06B6D4;
+      --accent-secondary: #8B5CF6;
+      --accent-gradient: linear-gradient(135deg, #06B6D4 0%, #8B5CF6 100%);
+      --text: #FFFFFF;
+      --muted: #E2E8F0;
+      /* High contrast body text for premium readability */
+      --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.6);
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
-      background:
-        radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 26%),
-        radial-gradient(circle at top right, rgba(79, 70, 229, 0.1), transparent 20%),
-        linear-gradient(180deg, #E2E8F0 0%, #F8FAFC 22%, #EEF2F7 100%);
+      background: var(--bg-gradient);
       color: var(--text);
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
       position: relative;
     }
 
+    /* Scrollbar Style */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0b1120;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1F2937;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+
+    /* Background grid effect - optimized to stop scroll lagging */
     body::before {
       content: '';
-      position: fixed;
+      position: absolute;
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
-      background-size: 32px 32px;
-      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.18), transparent 60%);
-      z-index: -1;
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: 1;
+      opacity: 0.8;
     }
 
-    /* ANIMATIONS */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* UTILITIES & ANIMATIONS */
+    /* Hide only if JS is active, otherwise let everything be visible for crawlers/accessibility */
+    .js-enabled .reveal {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     }
 
-    @keyframes subtlePulse {
+    .js-enabled .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes pulse-slow {
 
       0%,
       100% {
-        opacity: 1;
+        opacity: 0.6;
+        transform: scale(1);
       }
 
       50% {
-        opacity: 0.7;
+        opacity: 1;
+        transform: scale(1.05);
       }
     }
 
-    .animate-in {
-      animation: fadeInUp 0.6s ease-out both;
-    }
-
-    .animate-delay-1 {
-      animation-delay: 0.1s;
-    }
-
-    .animate-delay-2 {
-      animation-delay: 0.2s;
-    }
-
-    .animate-delay-3 {
-      animation-delay: 0.3s;
-    }
-
-    .animate-delay-4 {
-      animation-delay: 0.4s;
+    .glow-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #10B981;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 12px #10B981;
+      animation: pulse-slow 2s infinite ease-in-out;
     }
 
     /* NAV */
     nav {
-      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 1.25rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: rgba(11, 17, 32, 0.95);
       border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      background: rgba(248, 250, 252, 0.78);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
-      z-index: 30;
+      z-index: 100;
+      transition: padding 0.3s ease, background 0.3s ease;
+    }
+
+    nav.scrolled {
+      padding: 0.85rem 2rem;
+      background: #0b1120;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: var(--shadow-sm);
     }
 
     .nav-name {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: 0.9375rem;
-      color: var(--text);
-      letter-spacing: -0.01em;
+      font-size: 1.125rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: #9CA3AF;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
     }
 
     .nav-links {
       display: flex;
       gap: 2rem;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
       font-size: 0.875rem;
-      font-weight: 700;
-      transition: color 0.15s, opacity 0.15s;
-      opacity: 0.72;
+      font-weight: 500;
+      transition: all 0.2s;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a.active {
       color: var(--text);
-      opacity: 1;
+      text-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
     }
 
     /* HERO */
     .hero {
-      max-width: 1100px;
-      margin: 2rem auto 1.75rem;
-      padding: 4.5rem 3rem;
+      max-width: 1200px;
+      margin: 8rem auto 3rem;
+      padding: 4rem 2rem;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 4rem;
       align-items: center;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.86) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.75);
-      border-radius: 32px;
-      box-shadow: var(--shadow-lg);
       position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 380px;
-      height: 380px;
-      right: -110px;
-      top: -140px;
-      background: radial-gradient(circle, rgba(37, 99, 235, 0.16) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      left: -120px;
-      bottom: -140px;
-      background: radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 72%);
-      pointer-events: none;
+      z-index: 2;
     }
 
     .hero-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      position: relative;
-      z-index: 1;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       width: fit-content;
-      min-height: 34px;
       padding: 0.35rem 0.85rem;
       border-radius: 999px;
-      background: rgba(37, 99, 235, 0.08);
-      border: 1px solid rgba(37, 99, 235, 0.14);
+      background: rgba(6, 182, 212, 0.08);
+      border: 1px solid rgba(6, 182, 212, 0.2);
       font-family: 'Space Grotesk', sans-serif;
       font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
+      font-weight: 600;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
     }
 
     h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-size: clamp(2.5rem, 5vw, 4rem);
       font-weight: 700;
       line-height: 1.1;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.03em;
       margin-bottom: 1.5rem;
     }
 
-    h1 .accent {
-      color: var(--accent);
-    }
-
-    h1 .accent-purple {
-      color: var(--gradient-2);
+    h1 span.gradient {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .hero-sub {
       color: var(--muted);
-      font-size: 1.0625rem;
-      max-width: 620px;
+      font-size: 1.125rem;
+      max-width: 640px;
       margin-bottom: 2.5rem;
-      line-height: 1.85;
+      line-height: 1.75;
     }
 
-    /* Hero Image Container */
+    .hero-sub strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 2rem;
+      border-radius: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: #030712;
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
     .hero-image-container {
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
-      z-index: 1;
     }
 
     .hero-image-wrapper {
       position: relative;
       width: 100%;
-      max-width: 340px;
+      max-width: 320px;
       aspect-ratio: 4/5;
-      background: var(--surface);
+      background: #111827;
       border: 1px solid var(--border);
-      border-radius: 28px;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.12);
+      box-shadow: var(--shadow-lg);
     }
 
-    .hero-image-wrapper::before {
+    .hero-image-wrapper::after {
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: 28px;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+      border-radius: 24px;
+      box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.6);
       pointer-events: none;
     }
 
@@ -273,156 +338,126 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      filter: grayscale(20%) brightness(95%);
     }
 
-    .hero-image-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      color: var(--muted);
-      font-size: 0.875rem;
-      font-family: 'Space Grotesk', sans-serif;
+    /* Glowing accent background blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      z-index: -1;
+      opacity: 0.3;
     }
 
-    .cta-group {
-      display: flex;
-      gap: 0.875rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
-      color: #FFFFFF;
-      padding: 0.9rem 1.9rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      font-family: 'Space Grotesk', sans-serif;
-      border: 1px solid rgba(37, 99, 235, 0.18);
-      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.22);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
-      letter-spacing: -0.01em;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.03);
-      box-shadow: 0 18px 34px rgba(37, 99, 235, 0.28);
-    }
-
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      background: rgba(255, 255, 255, 0.86);
-      color: var(--text);
-      padding: 0.9rem 1.9rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-      font-family: 'Space Grotesk', sans-serif;
-      border: 1px solid rgba(15, 23, 42, 0.12);
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
-      transition: transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .btn-ghost:hover {
-      transform: translateY(-2px);
-      border-color: rgba(37, 99, 235, 0.2);
-      background: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+    .blob-1 {
+      width: 300px;
+      height: 300px;
+      background: var(--accent);
+      top: -50px;
+      right: -50px;
     }
 
     /* STATS */
     .stats-bar {
-      padding: 0 2rem 1rem;
-      background: transparent;
-      border: none;
+      max-width: 1200px;
+      margin: 0 auto 6rem;
+      padding: 0 2rem;
+      z-index: 2;
+      position: relative;
     }
 
     .stats-inner {
-      max-width: 1100px;
-      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      border-radius: 24px;
+      box-shadow: var(--shadow-md);
     }
 
-    .stat {
+    .stat-card {
       text-align: center;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      border-radius: 24px;
-      padding: 1.75rem 1.25rem;
-      box-shadow: var(--shadow-sm);
-      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .stat-card:not(:last-child) {
+      border-right: 1px solid var(--border);
     }
 
     .stat-num {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.25rem;
+      font-size: 2.75rem;
       font-weight: 700;
-      color: var(--accent);
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       line-height: 1;
       margin-bottom: 0.5rem;
     }
 
     .stat-label {
       font-size: 0.8125rem;
-      color: var(--muted);
+      color: #9CA3AF;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      font-weight: 500;
+      font-weight: 600;
     }
 
-    /* SECTIONS COMMON */
-    .section {
-      max-width: 1100px;
+    /* SECTION BASICS */
+    section.main-section {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 5.5rem 2rem;
+      padding: 6rem 2rem;
+      z-index: 2;
       position: relative;
     }
 
-    .section-pt0 {
-      padding-top: 0;
-    }
-
-    h2 {
+    h2.section-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2rem, 3vw, 2.5rem);
+      font-size: clamp(2rem, 3vw, 2.75rem);
       font-weight: 700;
       letter-spacing: -0.02em;
-      margin-bottom: 2.25rem;
-      max-width: 760px;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
 
-    /* ABOUT SECTION */
-    .about-grid {
+    h2.section-title::after {
+      content: '';
+      flex-grow: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
+    }
+
+    /* ABOUT */
+    .about-content {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      max-width: 860px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+      align-items: start;
     }
 
     .about-text {
-      font-size: 1.0625rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2.5rem;
+    }
+
+    .about-text p {
       color: var(--muted);
-      line-height: 1.8;
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid rgba(255, 255, 255, 0.72);
-      border-radius: 28px;
-      padding: 2rem 2rem 2.1rem;
-      box-shadow: var(--shadow-sm);
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
     }
 
     .about-text strong {
@@ -431,751 +466,672 @@
     }
 
     .manifesto-quote {
-      background: linear-gradient(135deg, var(--accent-dim) 0%, rgba(255, 255, 255, 0.96) 100%);
       border-left: 3px solid var(--accent);
-      border-right: 1px solid var(--border);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      border-radius: 0 18px 18px 0;
-      padding: 1.5rem 2rem;
+      padding-left: 1.5rem;
       margin-top: 2rem;
-      max-width: 800px;
-      box-shadow: var(--shadow-sm);
     }
 
     .manifesto-quote p {
-      font-size: 1.1rem;
-      color: var(--text);
-      line-height: 1.7;
       font-style: italic;
-      margin-bottom: 0;
+      color: var(--text);
+      font-size: 1.1rem;
     }
 
-    /* PIPELINE SECTION */
-    .pipeline {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      background: transparent;
-      border-radius: 0;
-      overflow: visible;
-      margin-top: 3rem;
+    .pipeline-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
-    .pipeline-step {
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid rgba(255, 255, 255, 0.72);
-      border-radius: 22px;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      position: relative;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-      box-shadow: var(--shadow-sm);
+    .pipeline-item {
+      display: flex;
+      gap: 1.25rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      padding: 1.25rem;
+      border-radius: 16px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
     }
 
-    .pipeline-step:hover {
-      transform: translateY(-4px);
-      border-color: rgba(37, 99, 235, 0.16);
-      box-shadow: var(--shadow-md);
-    }
-
-    .pipeline-step::after {
-      content: '';
-    }
-
-    .pipeline-step:last-child::after {
-      content: '';
-    }
-
-    .pipeline-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.6875rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
+    .pipeline-item:hover {
+      border-color: var(--border-hover);
+      transform: translateX(5px);
     }
 
     .pipeline-icon {
-      font-size: 1.75rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .pipeline-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 0.9375rem;
-      margin-bottom: 0.375rem;
-    }
-
-    .pipeline-desc {
-      font-size: 0.75rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    /* SKILLS SECTION */
-    .skills-subhead {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text);
-      margin-top: 2.5rem;
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.875rem;
-      border-bottom: 1px solid rgba(15, 23, 42, 0.1);
-    }
-
-    .skills-subhead--assisted {
-      color: var(--muted);
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.1rem;
-    }
-
-    .skill-card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 250, 252, 0.86) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.76);
-      border-radius: 20px;
-      padding: 1.5rem;
-      transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
-      box-shadow: var(--shadow-sm);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .skill-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), rgba(79, 70, 229, 0.6));
-    }
-
-    .skill-card:hover {
-      border-color: rgba(37, 99, 235, 0.18);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .skill-card--assisted {
-      opacity: 0.85;
-    }
-
-    .skill-card--assisted:hover {
-      border-color: var(--border);
-      opacity: 1;
-      transform: translateY(-2px);
-    }
-
-    .skill-icon {
       font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .skill-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: rgba(6, 182, 212, 0.08);
+      border-radius: 12px;
+      border: 1px solid rgba(6, 182, 212, 0.15);
+      flex-shrink: 0;
+      color: var(--accent);
     }
 
-    .skill-desc {
+    .pipeline-info h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .pipeline-info p {
       font-size: 0.8125rem;
       color: var(--muted);
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
-    .skill-badge-assisted {
-      display: inline-block;
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--muted);
+    /* CASE STUDY */
+    .case-study-showcase {
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 0.15rem 0.5rem;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    /* CASE STUDY — Premium */
-    .case-study {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.76);
-      border-radius: 30px;
+      border-radius: 32px;
       overflow: hidden;
-      position: relative;
       box-shadow: var(--shadow-lg);
     }
 
-    .case-study::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
-      z-index: 1;
-    }
-
     .cs-header {
-      padding: 2.5rem 3rem 2rem;
+      padding: 3rem;
+      border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 2rem;
       flex-wrap: wrap;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.38), transparent);
+      background: linear-gradient(180deg, rgba(6, 182, 212, 0.03), transparent);
     }
 
     .cs-tags {
       display: flex;
       gap: 0.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
       flex-wrap: wrap;
     }
 
     .cs-tag {
-      background: rgba(148, 163, 184, 0.12);
-      border: 1px solid rgba(15, 23, 42, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
       color: var(--muted);
-      font-size: 0.6875rem;
-      padding: 0.2rem 0.625rem;
-      border-radius: 20px;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 99px;
       font-family: 'Space Grotesk', sans-serif;
-      letter-spacing: 0.02em;
     }
 
-    .cs-tag--accent {
-      border-color: var(--accent-border);
+    .cs-tag.highlight {
+      background: rgba(6, 182, 212, 0.08);
+      border-color: rgba(6, 182, 212, 0.25);
       color: var(--accent);
-      background: var(--accent-dim);
     }
 
-    .cs-project-name {
+    .cs-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.75rem;
+      font-size: 2.25rem;
       font-weight: 700;
-      margin-bottom: 0.375rem;
+      margin-bottom: 0.5rem;
       letter-spacing: -0.02em;
     }
 
-    .cs-project-type {
-      font-size: 0.9375rem;
+    .cs-subtitle {
+      font-size: 1rem;
       color: var(--muted);
-      line-height: 1.5;
     }
 
-    .cs-live-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--accent);
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 0.8125rem;
-      text-decoration: none;
-      border: 1px solid var(--accent-border);
-      padding: 0.6rem 1.25rem;
-      border-radius: 8px;
-      transition: all 0.2s;
-      white-space: nowrap;
-      flex-shrink: 0;
-      background: rgba(37, 99, 235, 0.05);
-    }
-
-    .cs-live-link:hover {
-      background: var(--accent-dim);
-      border-color: var(--accent);
-      box-shadow: 0 0 20px var(--accent-glow);
-    }
-
-    /* Narrative */
-    .cs-narrative {
+    .cs-meta-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1px;
-      background: rgba(15, 23, 42, 0.08);
-      border-top: 1px solid rgba(15, 23, 42, 0.08);
-    }
-
-    .cs-narrative-block {
-      padding: 2rem 3rem;
-      background: rgba(255, 255, 255, 0.72);
-    }
-
-    .cs-narrative-label {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.6875rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-
-    .cs-narrative-block p {
-      font-size: 0.9375rem;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    /* Metrics */
-    .cs-metrics {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: rgba(15, 23, 42, 0.08);
-      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-    }
-
-    .cs-metric {
-      background: rgba(248, 250, 252, 0.92);
-      padding: 2rem 1.5rem;
-      text-align: center;
-    }
-
-    .cs-metric-value {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1.1;
-      margin-bottom: 0.5rem;
-    }
-
-    .cs-metric-unit {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      line-height: 1.4;
-    }
-
-    /* Approach */
-    .cs-approach {
-      padding: 2.5rem 3rem;
-    }
-
-    .cs-section-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text);
-      margin-bottom: 2rem;
-      padding-bottom: 0.75rem;
+      background: var(--border);
       border-bottom: 1px solid var(--border);
     }
 
-    .cs-approach-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
+    .cs-meta-block {
+      background: rgba(3, 7, 18, 0.2);
+      padding: 2.5rem 3rem;
     }
 
-    .cs-step {
-      background: rgba(248, 250, 252, 0.9);
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      border-radius: 18px;
-      padding: 1.5rem;
-      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-    }
-
-    .cs-step:hover {
-      border-color: var(--accent-border);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .cs-step-num {
+    .cs-meta-label {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.625rem;
+      font-size: 0.75rem;
       font-weight: 700;
+      color: var(--accent);
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.625rem;
-      opacity: 0.7;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .cs-step-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 0.9375rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .cs-step-desc {
-      font-size: 0.8125rem;
+    .cs-meta-block p {
       color: var(--muted);
+      font-size: 0.95rem;
       line-height: 1.6;
     }
 
-    /* Evidence Gallery */
-    .cs-evidence {
-      padding: 2.5rem 3rem;
-      border-top: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(15, 118, 110, 0.05) 0%, transparent 100%);
-    }
-
-    .cs-evidence-subtitle {
-      font-size: 0.875rem;
-      color: var(--muted);
-      margin-bottom: 2rem;
-      margin-top: -0.5rem;
-    }
-
-    .cs-evidence-grid {
+    /* Metrics Grid */
+    .cs-metrics-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--border);
+      border-bottom: 1px solid var(--border);
+      gap: 1px;
+    }
+
+    .cs-metric-card {
+      background: rgba(3, 7, 18, 0.4);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .cs-metric-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.25rem;
+    }
+
+    .cs-metric-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    /* Technical Deep Dive Accordions */
+    .cs-technical-section {
+      padding: 3rem;
+    }
+
+    .cs-tech-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .accordion-container {
+      display: flex;
+      flex-direction: column;
       gap: 1rem;
     }
 
-    .cs-evidence-card {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.74);
-      border-radius: 18px;
+    .accordion-item {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.01);
+      border-radius: 16px;
       overflow: hidden;
-      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-      box-shadow: var(--shadow-sm);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .cs-evidence-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent-border);
-      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+    .accordion-item.active {
+      border-color: var(--border-hover);
+      background: rgba(255, 255, 255, 0.02);
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.03);
     }
 
-    .cs-evidence-img {
+    .accordion-trigger {
       width: 100%;
-      aspect-ratio: 16/10;
-      background: var(--bg);
+      padding: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .accordion-trigger-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .accordion-trigger-left span.icon {
+      font-size: 1.25rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--muted);
-      font-size: 0.75rem;
-      font-family: 'Space Grotesk', sans-serif;
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
-    }
-
-    .cs-evidence-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .cs-evidence-info {
-      padding: 0.875rem 1rem;
-    }
-
-    .cs-evidence-query {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 0.8125rem;
-      margin-bottom: 0.25rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .cs-evidence-platform {
-      font-size: 0.6875rem;
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
       color: var(--accent);
-      font-weight: 500;
+    }
+
+    .accordion-trigger h3 {
       font-family: 'Space Grotesk', sans-serif;
-    }
-
-    /* CREDENTIALS */
-    .credentials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      align-items: start;
-    }
-
-    .cred-item {
-      background: rgba(255, 255, 255, 0.74);
-      border: 1px solid rgba(255, 255, 255, 0.74);
-      border-radius: 28px;
-      padding: 1.6rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .cred-title {
-      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem;
       font-weight: 600;
-      font-size: 1.0625rem;
-      margin-bottom: 0.25rem;
     }
 
-    .cred-meta {
-      font-size: 0.8125rem;
+    .accordion-chevron {
+      font-size: 0.85rem;
+      color: #9CA3AF;
+      transition: transform 0.3s;
+    }
+
+    .accordion-item.active .accordion-chevron {
+      transform: rotate(180deg);
+      color: var(--accent);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .accordion-content-inner {
+      padding: 0 1.5rem 1.5rem 4.25rem;
       color: var(--muted);
-      margin-bottom: 0.5rem;
+      font-size: 0.925rem;
     }
 
-    .cred-stack {
-      display: grid;
-      gap: 1rem;
+    .code-block {
+      background: #010409;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      font-family: 'Fira Code', 'Courier New', Courier, monospace;
+      font-size: 0.825rem;
+      color: #E6EDF3;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+
+    .code-block span.comment {
+      color: #8B949E;
+    }
+
+    .code-block span.keyword {
+      color: #FF7B72;
+    }
+
+    .code-block span.string {
+      color: #A5D6FF;
+    }
+
+    .code-block span.variable {
+      color: #FFA657;
+    }
+
+    .tech-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
       margin-top: 1rem;
     }
 
-    .cred-entry {
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      border-radius: 18px;
-      padding: 1rem 1.1rem;
+    .tech-badge-sub {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: var(--text);
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* TECH STACK GRID */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .tech-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .tech-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(6, 182, 212, 0.05);
+    }
+
+    .tech-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      color: var(--accent);
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .tech-card:hover .tech-icon {
+      border-color: var(--border-hover);
+      background: rgba(6, 182, 212, 0.05);
+    }
+
+    .tech-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .tech-level {
+      font-size: 0.75rem;
+      color: #9CA3AF;
+    }
+
+    /* SKILLS 3-COLUMN */
+    .skills-layout {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .skill-col {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2.25rem;
+    }
+
+    .skill-col h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--accent);
+    }
+
+    .skill-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      list-style: none;
+    }
+
+    .skill-item h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-item p {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* CREDENTIALS */
+    .cred-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .cred-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .cred-sub {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .cred-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.75rem;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a.cred-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
     }
 
     .cred-period {
       display: inline-flex;
-      align-items: center;
-      min-height: 28px;
-      padding: 0.2rem 0.65rem;
-      margin-bottom: 0.75rem;
-      border-radius: 999px;
-      background: rgba(37, 99, 235, 0.08);
-      border: 1px solid rgba(37, 99, 235, 0.14);
-      color: var(--accent);
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--accent);
+      background: rgba(6, 182, 212, 0.08);
+      border: 1px solid rgba(6, 182, 212, 0.15);
+      padding: 0.2rem 0.6rem;
+      border-radius: 99px;
+      margin-bottom: 0.75rem;
     }
 
-    .cred-degree {
+    .cred-title {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
+      font-weight: 600;
       margin-bottom: 0.25rem;
     }
 
-    .cred-school {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.375rem;
-    }
-
-    .cred-detail {
-      font-size: 0.875rem;
+    .cred-org {
+      font-size: 0.85rem;
       color: var(--muted);
-      margin-bottom: 0.35rem;
-      line-height: 1.6;
+      margin-bottom: 0.5rem;
     }
 
-    .cred-detail:last-child {
-      margin-bottom: 0;
-    }
-
-    .cert-link {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-    }
-
-    .cert-link:hover {
-      transform: translateY(-2px);
-    }
-
-    .cert-link:hover .cred-entry {
-      border-color: rgba(37, 99, 235, 0.22);
-      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
-    }
-
-    .cert-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.3rem;
+    .cred-desc {
+      font-size: 0.8125rem;
+      color: var(--muted);
       line-height: 1.5;
     }
 
-    .cert-issuer {
-      font-size: 0.8125rem;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
-    }
-
-    .cert-open {
+    .cred-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-top: 1rem;
       font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      font-weight: 600;
       color: var(--accent);
       font-family: 'Space Grotesk', sans-serif;
     }
 
-    /* CONTACT / FOOTER */
+    /* FOOTER / CONTACT */
     footer {
-      max-width: 1100px;
-      margin: 0 auto 2rem;
-      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 4rem auto 2rem;
+      padding: 5rem 2rem 3rem;
       text-align: center;
-      background:
-        radial-gradient(circle at top right, rgba(37, 99, 235, 0.18), transparent 28%),
-        radial-gradient(circle at bottom left, rgba(79, 70, 229, 0.16), transparent 24%),
-        linear-gradient(135deg, #EAF2FF 0%, #F8FAFC 42%, #EEF4FF 100%);
-      border: 1px solid rgba(255, 255, 255, 0.88);
+      background: radial-gradient(circle at top, rgba(6, 182, 212, 0.08), transparent 70%),
+        var(--surface);
+      border: 1px solid var(--border);
       border-radius: 32px;
       box-shadow: var(--shadow-lg);
       position: relative;
       overflow: hidden;
     }
 
-    footer::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.52), transparent 36%);
-      pointer-events: none;
-    }
-
     .footer-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
+      font-size: 2.25rem;
       font-weight: 700;
       margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
+      letter-spacing: -0.02em;
     }
 
     .footer-sub {
       color: var(--muted);
-      max-width: 560px;
-      margin: 0 auto 2.25rem;
-      font-size: 0.98rem;
-      line-height: 1.8;
-      position: relative;
-      z-index: 1;
+      max-width: 540px;
+      margin: 0 auto 3rem;
+      font-size: 1rem;
     }
 
-    .contact-actions {
+    .contact-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-bottom: 2.5rem;
-      position: relative;
-      z-index: 1;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 4rem;
     }
 
     .contact-card {
+      background: rgba(3, 7, 18, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.5rem;
       display: flex;
       align-items: center;
-      gap: 0.95rem;
-      text-align: left;
+      gap: 1.25rem;
       text-decoration: none;
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid rgba(255, 255, 255, 0.86);
-      border-radius: 22px;
-      padding: 1.15rem 1.2rem;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
-      backdrop-filter: blur(12px);
+      color: inherit;
+      text-align: left;
+      transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
     }
 
     .contact-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      border-color: rgba(37, 99, 235, 0.18);
-      background: rgba(255, 255, 255, 0.94);
+      border-color: var(--border-hover);
+      transform: translateY(-5px);
+      background: rgba(3, 7, 18, 0.6);
+      box-shadow: 0 10px 30px rgba(6, 182, 212, 0.05);
     }
 
     .contact-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      display: inline-flex;
+      width: 52px;
+      height: 52px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.14), rgba(79, 70, 229, 0.1));
       color: var(--accent);
-      border: 1px solid rgba(37, 99, 235, 0.12);
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
     }
 
-    .contact-icon svg {
-      width: 21px;
-      height: 21px;
+    .contact-card:hover .contact-icon {
+      border-color: var(--border-hover);
+      background: rgba(6, 182, 212, 0.05);
+    }
+
+    .contact-card svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .contact-copy {
       display: flex;
       flex-direction: column;
-      gap: 0.15rem;
       min-width: 0;
     }
 
     .contact-label {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
       color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.15rem;
     }
 
     .contact-value {
       font-size: 0.95rem;
       font-weight: 600;
-      color: var(--text);
-      line-height: 1.5;
-      word-break: break-word;
+      word-break: break-all;
+    }
+
+    .footer-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border) 50%, transparent);
+      margin-bottom: 2rem;
     }
 
     .footer-meta {
-      font-size: 0.75rem;
-      color: var(--muted);
-      position: relative;
-      z-index: 1;
+      font-size: 0.8125rem;
+      color: #9CA3AF;
     }
 
     /* RESPONSIVENESS */
-    @media (max-width: 900px) {
+    @media (max-width: 968px) {
+      nav {
+        padding: 1.25rem 1.5rem;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #030712;
+        border-bottom: 1px solid var(--border);
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: var(--shadow-md);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
       .hero {
         grid-template-columns: 1fr;
         gap: 3rem;
         text-align: center;
-        padding: 3.25rem 1.5rem;
-        margin-top: 1rem;
+        margin-top: 6rem;
       }
 
-      .hero-content {
-        align-items: center;
-      }
-
-      .eyebrow {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-sub {
+      .eyebrow,
+      .cta-group {
         margin-left: auto;
         margin-right: auto;
       }
@@ -1185,92 +1141,75 @@
       }
 
       .stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .stat-card:nth-child(even) {
+        border-right: none;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .cs-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cs-meta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-layout {
         grid-template-columns: 1fr;
         gap: 1.5rem;
       }
 
-      .pipeline {
+      .cred-grid {
         grid-template-columns: 1fr;
+        gap: 3rem;
       }
 
-      .pipeline-step::after {
-        content: '';
-      }
-
-      .cs-header {
-        padding: 2rem;
-        flex-direction: column;
-      }
-
-      .cs-narrative {
-        grid-template-columns: 1fr;
-      }
-
-      .cs-narrative-block {
-        padding: 1.5rem 2rem;
-      }
-
-      .cs-metrics {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .cs-approach {
-        padding: 2rem;
-      }
-
-      .cs-approach-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cs-evidence {
-        padding: 2rem;
-      }
-
-      .cs-evidence-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .cred-item,
-      footer {
-        border-radius: 24px;
-      }
-
-      .contact-actions {
+      .contact-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 500px) {
-      nav {
-        padding-left: 1rem;
-        padding-right: 1rem;
+    @media (max-width: 576px) {
+      .stats-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
 
-      .hero,
-      .section,
-      .stats-bar,
-      footer {
-        padding-left: 1rem;
-        padding-right: 1rem;
+      .stat-card {
+        border-right: none !important;
+        padding-bottom: 1.5rem;
       }
 
-      .cs-metrics {
-        grid-template-columns: 1fr 1fr;
+      .stat-card:not(:last-child) {
+        border-bottom: 1px solid var(--border);
       }
 
-      .cs-evidence-grid {
+      .cs-header {
+        padding: 2rem;
+      }
+
+      .cs-metrics-grid {
         grid-template-columns: 1fr;
       }
 
-      .stat,
-      .skill-card,
-      .cred-item {
-        border-radius: 20px;
+      .cs-meta-block {
+        padding: 2rem;
       }
 
-      .contact-card {
-        border-radius: 18px;
-        padding: 1rem;
+      .cs-technical-section {
+        padding: 2rem;
+      }
+
+      .accordion-content-inner {
+        padding-left: 2rem;
       }
     }
   </style>
@@ -1279,461 +1218,522 @@
 <body>
 
   <!-- NAVIGATION -->
-  <nav>
+  <nav id="navbar">
     <div class="nav-name">Izzuddin Ayyash</div>
-    <ul class="nav-links">
-      <li><a href="#tentang">Tentang</a></li>
-      <li><a href="#keahlian">Keahlian</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#kontak">Kontak</a></li>
+    <div class="nav-status">
+      <span class="glow-dot"></span>
+      Tersedia untuk Freelance & Full-Time
+    </div>
+    <button class="menu-toggle" id="menu-btn" aria-label="Toggle Menu">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#tentang" class="nav-link">Tentang</a></li>
+      <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+      <li><a href="#keahlian" class="nav-link">Keahlian</a></li>
+      <li><a href="#kredensial" class="nav-link">Kredensial</a></li>
+      <li><a href="#kontak" class="nav-link">Kontak</a></li>
     </ul>
   </nav>
 
   <!-- HERO SECTION -->
   <header class="hero">
     <div class="hero-content">
-      <div class="eyebrow animate-in">Technical SEO & Developer</div>
-      <h1 class="animate-in animate-delay-1">Halo, Saya <span class="accent">Izzuddin Ayyash</span></h1>
-      <p class="hero-sub animate-in animate-delay-2">
-       Saya mengombinasikan kode dan strategi pencarian untuk membantu brand ditemukan calon pelanggan, baik lewat mesin pencari maupun platform AI. Sebagai SEO Team of One, saya terbiasa membongkar celah yang terlewat kompetitor, merancang strategi untuk merebutnya, dan menuliskan sendiri baris kode yang mengeksekusinya.
+      <div class="eyebrow reveal active">Developer & SEO/GEO Strategist</div>
+      <h1 class="reveal active">
+        Membangun Website yang Dirancang untuk <span class="gradient">Mendominasi Search Engine</span>
+      </h1>
+      <p class="hero-sub reveal active">
+        Halo, saya <strong>Izzuddin Ayyash</strong>. Sebagai fresh graduate yang bertindak sebagai <strong>SEO Team of
+          One</strong>, saya terbiasa membongkar celah yang terlewat kompetitor, merancang strategi untuk merebutnya,
+        lalu mengeksekusinya lewat kode yang dipercepat dengan AI. Hasilnya, brand lebih mudah ditemukan di Google SERP
+        serta disitasi oleh AI Overview, ChatGPT, dan Gemini.
       </p>
-       <div class="cta-group animate-in animate-delay-3">
-        <a href="#portfolio" class="btn-primary">Lihat Hasil Kerja</a>
-        <a href="#kontak" class="btn-ghost">Hubungi Saya</a>
+      <div class="cta-group reveal active">
+        <a href="#portfolio" class="btn btn-primary">Lihat Case Study</a>
+        <a href="#kontak" class="btn btn-secondary">Hubungi Saya</a>
       </div>
     </div>
     <div class="hero-image-container">
-      <div class="hero-image-wrapper animate-in animate-delay-4">
+      <div class="hero-image-wrapper reveal active">
         <img src="images/Izzuddin_Ayyash.jpg" alt="Izzuddin Ayyash" fetchpriority="high" decoding="async">
       </div>
+      <div class="blob blob-1"></div>
     </div>
   </header>
 
   <section class="stats-bar">
-    <div class="stats-inner">
-      <div class="stat">
-        <div class="stat-num">Full-Stack</div>
-        <div class="stat-label">Web Development (AI-Powered)</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">SEO + GEO</div>
-        <div class="stat-label">Search & AI Optimization</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">Strategic</div>
-        <div class="stat-label">Research-Driven Approach</div>
-      </div>
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">Full-Stack</div>
+      <div class="stat-label">Web Development (AI-Powered)</div>
     </div>
-  </section>
+    <div class="stat">
+      <div class="stat-num">SEO + GEO</div>
+      <div class="stat-label">Search & AI Optimization</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Strategic</div>
+      <div class="stat-label">Research-Driven Approach</div>
+    </div>
+  </div>
+</section>
 
-
-  <section class="section" id="tentang">
-    <div class="eyebrow">Tentang Saya</div>
-    <h2>Efisiensi Berbasis AI, Strategi Berbasis Data.</h2>
-    <div class="about-grid">
+  <!-- ABOUT SECTION -->
+  <section class="main-section reveal" id="tentang">
+    <h2 class="section-title">Tentang Saya</h2>
+    <div class="about-content">
       <div class="about-text">
-
-        <p style="margin-bottom: 1.5rem;">
-          Selama satu tahun terakhir, saya mendalami dinamika bagaimana algoritma mesin pencari dan
-          AI terus berubah dalam menentukan konten yang ditampilkan ke pengguna. Ketertarikan ini
-          yang membuat saya terbiasa <strong>membangun website yang tidak hanya dioptimasi sekali,
-          tetapi terus diperbarui mengikuti perkembangan algoritma terbaru.</strong>
+        <p>
+          Selama satu tahun terakhir, saya mendalami dinamika evolusi algoritma search engine. Kehadiran generative AI
+          mengubah cara audiens mencari informasi, dan itu menginspirasi saya untuk fokus pada <strong>GEO (Generative
+            Engine Optimization)</strong> dan <strong>AEO (Answer Engine Optimization)</strong> sejak dini.
         </p>
-        <p style="margin-bottom: 1.5rem;">
-          Alur kerja saya dimulai dari <strong>brand discovery</strong>, menggali informasi dan aset
-          yang sudah dimiliki bisnis, lalu mengubahnya menjadi sinyal kredibilitas yang kuat di
-          mata mesin pencari. Dari situ, saya merancang arsitektur website, menulis strategi
-          konten, dan memanfaatkan AI sebagai akselerator eksekusi teknis.
+        <p>
+          Saya terbiasa membangun custom website yang dioptimasi secara dinamis. Alur kerja saya mencakup <strong>Brand
+            Discovery</strong>, analisis kelemahan kompetitor di SERP, merancang arsitektur linking internal, hingga
+          merilis kode backend yang tangguh untuk menghasilkan halaman berskala besar.
         </p>
-       <p>
-          Fokus saya saat ini tertuju pada <strong>GEO (Generative Engine Optimization) dan AEO (Answer Engine Optimization)</strong>. Kehadiran AI Overview membuktikan bahwa ruang pencarian kini dinamis dan tidak lagi didominasi oleh pemain lama. Saya tertantang untuk <strong>mempelajari dan menguasai celah baru ini sejak awal guna menghadirkan keunggulan kompetitif bagi brand.</strong>
-        </p>
-
-      </div>
-    </div>
-    </div>
-
-    <!-- PIPELINE: Full Service -->
-    <div class="pipeline">
-      <div class="pipeline-step">
-        <div class="pipeline-num">Tahap 01</div>
-        <div class="pipeline-icon">🔍</div>
-        <div class="pipeline-title">Brand Discovery & Riset</div>
-        <div class="pipeline-desc">Menggali aset bisnis, riset tren pasar, dan membedah kelemahan kompetitor langsung di
-          SERP.</div>
-      </div>
-      <div class="pipeline-step">
-        <div class="pipeline-num">Tahap 02</div>
-        <div class="pipeline-icon">💻</div>
-        <div class="pipeline-title">Build Website</div>
-        <div class="pipeline-desc">Custom website yang memberikan kendali penuh atas technical SEO dan skalabilitas
-          konten lokal</div>
-      </div>
-      <div class="pipeline-step">
-        <div class="pipeline-num">Tahap 03</div>
-        <div class="pipeline-icon">📈</div>
-        <div class="pipeline-title">Optimasi SEO</div>
-        <div class="pipeline-desc">On-page SEO, arsitektur internal linking, hyper-local SEO, dan content strategy
-          berbasis intent</div>
-      </div>
-      <div class="pipeline-step">
-        <div class="pipeline-num">Tahap 04</div>
-        <div class="pipeline-icon">🤖</div>
-        <div class="pipeline-title">GEO & AEO</div>
-        <div class="pipeline-desc">Framing konten untuk disitasi AI Overview, ChatGPT & Gemini</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- KEAHLIAN SECTION -->
-  <section class="section section-pt0" id="keahlian">
-    <div class="eyebrow">Keahlian</div>
-    <h2>Spesialisasi & Kapabilitas</h2>
-
-    <div class="skills-subhead">Dikerjakan Mandiri</div>
-    <div class="skills-grid">
-
-      <div class="skill-card">
-        <div class="skill-icon">🎯</div>
-        <div class="skill-name">SEO & GEO/AEO Strategy</div>
-        <div class="skill-desc">Merancang strategi menyeluruh agar website tidak hanya ranking di Google SERP, tapi juga
-          disitasi oleh AI Overview, ChatGPT, dan Gemini melalui pendekatan GEO & AEO.</div>
+        <div class="manifesto-quote">
+  <p>"Efisiensi saya dapatkan dari AI, tapi setiap strategi tetap lahir dari data."</p>
+</div>
       </div>
 
-      <div class="skill-card">
-        <div class="skill-icon">📍</div>
-        <div class="skill-name">Hyper-Local SEO</div>
-        <div class="skill-desc">Membangun halaman berbasis kota yang mendominasi pencarian lokal — memastikan bisnis
-          ditemukan oleh user di setiap kota target tanpa kanibalisasi antar halaman.</div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon">🔍</div>
-        <div class="skill-name">Competitive Gap Analysis</div>
-        <div class="skill-desc">Menganalisis kelemahan kompetitor langsung di SERP dan mengubah celah yang terlewat
-          menjadi peluang dominasi organik.</div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon">📋</div>
-        <div class="skill-name">Content Strategy</div>
-        <div class="skill-desc">Merancang struktur konten berbasis intent pengguna — dari pemetaan topik cluster hingga
-          arsitektur informasi yang mendukung pertumbuhan jangka panjang.</div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon">✍️</div>
-        <div class="skill-name">Content Writing</div>
-        <div class="skill-desc">Menulis konten halaman yang persuasif dan intent-driven — framing yang tepat untuk
-          menarik klik, membangun kepercayaan, dan mendorong konversi.</div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon">🔗</div>
-        <div class="skill-name">Internal Linking Architecture</div>
-        <div class="skill-desc">Mendesain struktur link antar halaman untuk mendistribusikan authority secara efisien
-          dan memperkuat sinyal relevansi di mata mesin pencari.</div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon">📊</div>
-        <div class="skill-name">Google Search Console</div>
-        <div class="skill-desc">Melacak performa keyword, mengevaluasi kesehatan teknis website, dan memastikan
-          efisiensi indexing untuk keputusan optimasi berbasis data.</div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon">📈</div>
-        <div class="skill-name">Google Analytics</div>
-        <div class="skill-desc">Membaca data traffic dan perilaku pengguna untuk memvalidasi performa konten dan
-          menentukan arah strategi selanjutnya.</div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon">🔧</div>
-        <div class="skill-name">Ahrefs</div>
-        <div class="skill-desc">Riset keyword, audit kesehatan domain, dan pemetaan profil kompetitor untuk
-          mengidentifikasi peluang pertumbuhan organik.</div>
-      </div>
-
-    </div>
-
-    <div class="skills-subhead skills-subhead--assisted">Akselerasi Dengan Bantuan AI</div>
-    <div class="skills-grid">
-
-      <div class="skill-card skill-card--assisted">
-        <div class="skill-icon">💻</div>
-        <div class="skill-name">Web Development <span class="skill-badge-assisted">AI-Assisted</span></div>
-        <div class="skill-desc">Merancang arsitektur dan membangun website custom — logika navigasi, struktur halaman,
-          dan skalabilitas konten — dengan AI sebagai akselerator penulisan kode (Laravel/Blade, HTML, CSS, JS).</div>
-      </div>
-
-      <div class="skill-card skill-card--assisted">
-        <div class="skill-icon">⚙️</div>
-        <div class="skill-name">Technical SEO & Infrastructure <span class="skill-badge-assisted">AI-Assisted</span>
+      <div class="pipeline-vertical">
+        <div class="pipeline-item">
+          <div class="pipeline-icon">🔍</div>
+          <div class="pipeline-info">
+            <h4>01. Discovery & Riset</h4>
+            <p>Membedah gap SERP, entitas brand, dan intensitas kompetisi kata kunci.</p>
+          </div>
         </div>
-        <div class="skill-desc">Merancang infrastruktur teknis untuk website berskala besar — arsitektur URL
-          geo-targeted, dynamic sitemap, crawl budget management, dan multi-type schema strategy lintas ratusan halaman.
-          Eksekusi kode dipercepat dengan AI.</div>
+        <div class="pipeline-item">
+          <div class="pipeline-icon">💻</div>
+          <div class="pipeline-info">
+            <h4>02. Custom Development</h4>
+            <p>Membangun core aplikasi cepat dan clean, tanpa beban CMS yang lambat.</p>
+          </div>
+        </div>
+        <div class="pipeline-item">
+          <div class="pipeline-icon">📈</div>
+          <div class="pipeline-info">
+          <h4>03. Strategic SEO & GEO</h4>
+          <p>Menguatkan entity signal brand lewat pendekatan E-E-A-T, serta membangun unique point of view pada setiap konten agar lebih mudah dikutip AI search engines dibanding pendekatan generik kompetitor.</p>
+        </div>
+        </div>
       </div>
-      <div class="skill-card skill-card--assisted">
-        <div class="skill-icon">🧪</div>
-        <div class="skill-name">Deep Data Research <span class="skill-badge-assisted">AI-Assisted</span></div>
-        <div class="skill-desc">Riset berskala besar pada tren industri, pola pencarian, dan analisis kompetitor —
-          dipercepat dengan AI untuk pengambilan keputusan strategis yang lebih cepat.</div>
-      </div>
-
     </div>
   </section>
 
   <!-- PORTFOLIO SECTION -->
-  <section class="section" id="portfolio">
-    <div class="eyebrow">Portfolio / Case Study</div>
-    <h2>Proyek yang Pernah Saya Tangani</h2>
+  <section class="main-section reveal" id="portfolio">
+    <h2 class="section-title">Case Study / Portfolio</h2>
 
-    <div class="case-study">
+    <div class="case-study-showcase">
       <!-- Header -->
       <div class="cs-header">
         <div>
           <div class="cs-tags">
-            <span class="cs-tag cs-tag--accent">GEO/AEO</span>
-            <span class="cs-tag">Full-Stack Development</span>
-            <span class="cs-tag">SEO Architecture</span>
+            <span class="cs-tag highlight">Laravel Backend</span>
+            <span class="cs-tag highlight">SQLite DB</span>
+            <span class="cs-tag">GEO/AEO Strategy</span>
             <span class="cs-tag">Hyper-Local SEO</span>
-            <span class="cs-tag">Content Strategy</span>
           </div>
-          <div class="cs-project-name">Kawan Sport Indonesia</div>
-          <div class="cs-project-type">Spesialis Jasa Pemasangan & Produk Lantai Lapangan Olahraga</div>
+          <h3 class="cs-title">Kawan Sport Indonesia</h3>
+          <p class="cs-subtitle">Spesialis Jasa Pemasangan & Supplier Lantai Lapangan Olahraga</p>
         </div>
-        <a href="https://kawansportindonesia.com" class="cs-live-link" target="_blank" rel="noopener">Kunjungi Website
-          ↗</a>
+        <a href="https://kawansportindonesia.com" class="btn btn-secondary" target="_blank" rel="noopener">Kunjungi
+          Website ↗</a>
       </div>
 
-      <!-- Narrative -->
-      <div class="cs-narrative">
-        <div class="cs-narrative-block">
-          <div class="cs-narrative-label">Tantangan</div>
-          <p>Bisnis tanpa kehadiran digital yang ingin mendominasi pasar produk & jasa pemasangan lantai lapangan
-            olahraga secara online — di tengah kompetitor yang sudah lebih dulu mapan di Google.</p>
+      <!-- Overview -->
+      <div class="cs-meta-grid">
+        <div class="cs-meta-block">
+          <span class="cs-meta-label">Tantangan Bisnis</span>
+          <p>Membangun otoritas digital baru dari nol untuk bisnis jasa pemasangan & produk lantai lapangan olahraga. Harus mampu bersaing
+            dengan kompetitor lama di Google SERP pada ratusan wilayah di Indonesia secara efisien tanpa overloading
+            resource server.</p>
         </div>
-        <div class="cs-narrative-block">
-          <div class="cs-narrative-label">Peran Saya</div>
-          <p>Full ownership dari nol: riset pasar, strategi SEO, arsitektur website, development, konten, hingga
-            penargetan AI — semuanya dibangun dengan pendekatan AI-accelerated.</p>
+        <div class="cs-meta-block">
+          <span class="cs-meta-label">Peran & Kepemilikan</span>
+          <p>Full ownership sebagai satu-satunya developer dan SEO strategist (Team of One). Membangun Interactive UI, arsitektur
+            backend, skema database, optimalisasi programatik, dan implementasi strategi GEO untuk memicu rujukan AI.
+          </p>
         </div>
       </div>
 
       <!-- Metrics -->
-      <div class="cs-metrics">
-        <div class="cs-metric">
-          <div class="cs-metric-value">3/5</div>
-          <div class="cs-metric-unit">Kategori Olahraga<br>Masuk SERP</div>
+      <div class="cs-metrics-grid">
+        <div class="cs-metric-card">
+          <div class="cs-metric-val">3/5</div>
+          <div class="cs-metric-label">Kategori Olahraga<br>Mendominasi SERP</div>
         </div>
-        <div class="cs-metric">
-          <div class="cs-metric-value">
-            < 2 Bln</div>
-              <div class="cs-metric-unit">Waktu Mencapai<br>Hasil Awal</div>
-          </div>
-          <div class="cs-metric">
-            <div class="cs-metric-value">3</div>
-            <div class="cs-metric-unit">Platform AI<br>Menyitasi Brand</div>
-          </div>
-          <div class="cs-metric">
-            <div class="cs-metric-value">Multi-Kota</div>
-            <div class="cs-metric-unit">Dominasi Pencarian<br>"Terdekat"</div>
-          </div>
+        <div class="cs-metric-card">
+          <div class="cs-metric-val">&lt; 2 Bln</div>
+          <div class="cs-metric-label">Waktu Pencapaian<br>Hasil Awal</div>
         </div>
+        <div class="cs-metric-card">
+          <div class="cs-metric-val">3</div>
+          <div class="cs-metric-label">Platform AI Utama<br>Menyitasi Brand</div>
+        </div>
+        <div class="cs-metric-card">
+          <div class="cs-metric-val">400+</div>
+          <div class="cs-metric-label">Halaman Berhasil<br>Di-index Google</div>
+        </div>
+      </div>
 
-        <!-- Approach -->
-        <div class="cs-approach">
-          <div class="cs-section-title">Yang Saya Bangun & Kerjakan</div>
-          <div class="cs-approach-grid">
-            <div class="cs-step">
-              <div class="cs-step-num">Tahap 01</div>
-              <div class="cs-step-title">Riset & Analisis Kompetitif</div>
-              <div class="cs-step-desc">Mengidentifikasi celah di strategi digital kompetitor — keyword yang terlewat,
-                konten yang belum digarap, dan peluang niche yang bisa direbut.</div>
-            </div>
-            <div class="cs-step">
-              <div class="cs-step-num">Tahap 02</div>
-              <div class="cs-step-title">Arsitektur Website & Content Siloing</div>
-              <div class="cs-step-desc">Merancang arsitektur URL geo-targeted dan content siloing — struktur yang
-                memisahkan topik per kategori untuk memaksimalkan relevansi di mata mesin pencari.</div>
-            </div>
-            <div class="cs-step">
-              <div class="cs-step-num">Tahap 03</div>
-              <div class="cs-step-title">Web Development (AI-Assisted)</div>
-              <div class="cs-step-desc">Membangun website custom dengan Laravel/Blade — dynamic routing, logika
-                navigasi, dan skalabilitas konten — dengan AI sebagai akselerator penulisan kode.</div>
-            </div>
-            <div class="cs-step">
-              <div class="cs-step-num">Tahap 04</div>
-              <div class="cs-step-title">Technical SEO & Infrastructure</div>
-              <div class="cs-step-desc">Implementasi multi-type schema strategy, dynamic sitemap, arsitektur URL
-                geo-targeted, dan crawl budget management untuk ratusan halaman.</div>
-            </div>
-            <div class="cs-step">
-              <div class="cs-step-num">Tahap 05</div>
-              <div class="cs-step-title">Strategi Konten & Copywriting</div>
-              <div class="cs-step-desc">Menulis konten intent-driven dengan framing yang menarik klik. Contoh: "Jual
-                karpet badminton BWF" → "Lihat hasil pemasangan dan harga terbaru di sini."</div>
-            </div>
-            <div class="cs-step">
-              <div class="cs-step-num">Tahap 06</div>
-              <div class="cs-step-title">Internal Linking Architecture</div>
-              <div class="cs-step-desc">Mendesain struktur link antar halaman untuk mendistribusikan authority secara
-                efisien dan memperkuat sinyal relevansi di setiap cluster konten.</div>
-            </div>
-            <div class="cs-step">
-              <div class="cs-step-num">Tahap 07</div>
-              <div class="cs-step-title">Hyper-Local SEO ("Terdekat")</div>
-              <div class="cs-step-desc">Membangun halaman spesifik kota yang mendominasi pencarian "terdekat" —
-                memastikan bisnis ditemukan di setiap lokasi target tanpa kanibalisasi halaman.</div>
-            </div>
-            <div class="cs-step">
-              <div class="cs-step-num">Tahap 08</div>
-              <div class="cs-step-title">GEO/AEO Strategy</div>
-              <div class="cs-step-desc">Mengembangkan dan menguji hipotesis framing konten agar disitasi oleh AI
-                generatif — berhasil muncul di Google AI Overview, ChatGPT, dan Gemini.</div>
+      <!-- Technical Deep Dive Accordions -->
+      <div class="cs-technical-section">
+        <h4 class="cs-tech-title">🧬 Detail Teknis Implementasi</h4>
+
+        <div class="accordion-container">
+          <!-- Accordion Item 1 -->
+          <div class="accordion-item active">
+            <button class="accordion-trigger">
+              <div class="accordion-trigger-left">
+                <span class="icon">🗺️</span>
+                <h3>Arsitektur Dynamic Routing Skala Besar</h3>
+              </div>
+              <span class="accordion-chevron">▼</span>
+            </button>
+            <div class="accordion-content" style="max-height: 500px;">
+              <div class="accordion-content-inner">
+                <p>
+                  Saya mendesain sistem dynamic routing untuk meng-handle optimasi landing page lokal di 100+ kota
+                  Indonesia. Fokus utama ada pada dua template endpoint yang didefinisikan secara programatis
+                  menggunakan constraint regular expression di Laravel:
+                </p>
+                <div class="code-block">
+                  <span class="comment">// 1. Endpoint Harga Lapangan per Kota</span>
+                  Route::<span class="keyword">get</span>(<span class="string">'/jual-karpet-{sport}-{kota}'</span>,
+                  [KarpetKotaController::<span class="keyword">class</span>, <span class="string">'showJual'</span>])
+                  -><span class="keyword">name</span>(<span class="string">'karpet.jual.kota'</span>)
+                  -><span class="keyword">where</span>(<span class="string">'sport'</span>, <span
+                    class="string">'badminton|pickleball|basket|minisoccer'</span>)
+                  -><span class="keyword">where</span>(<span class="string">'kota'</span>, <span
+                    class="string">'[a-z\-]+'</span>);
+
+                  <span class="comment">// 2. Endpoint Halaman Jasa Pemasangan per Kota</span>
+                  Route::<span class="keyword">get</span>(<span
+                    class="string">'/layanan/lapangan-{sport}-{slug}'</span>, [KotaLayananController::<span
+                    class="keyword">class</span>, <span class="string">'show'</span>])
+                  -><span class="keyword">name</span>(<span class="string">'kota'</span>)
+                  -><span class="keyword">where</span>(<span class="string">'sport'</span>, <span
+                    class="string">'badminton|padel|basket|minisoccer|pickleball'</span>);
+                </div>
+                <p>
+                  <strong>Hasil:</strong> Mengurangi overhead pemeliharaan link. Cukup menggunakan 2 definisi route ini
+                  untuk secara otomatis memetakan, mem-build, dan me-render <strong>400+ landing page</strong> dengan
+                  performa loading instan.
+                </p>
+                <div class="tech-badges-row">
+                  <span class="tech-badge-sub">Laravel Routing</span>
+                  <span class="tech-badge-sub">Regex Constraints</span>
+                  <span class="tech-badge-sub">Clean URL Structure</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Evidence Gallery -->
-        <div class="cs-evidence">
-          <div class="cs-section-title">Bukti: Disitasi AI di Pencarian High-Volume</div>
-          <div class="cs-evidence-subtitle">Screenshot pencarian yang menunjukkan brand KSI disitasi oleh platform AI
-            pada keyword dengan volume pencarian tinggi.</div>
-          <div class="cs-evidence-grid">
-            <div class="cs-evidence-card">
-              <div class="cs-evidence-img">
-                <!-- Ganti dengan: <img src="images/ss-harga-karpet-badminton.png" alt="Harga Karpet Badminton - AI Citation"> -->
-                📷 Screenshot
+          <!-- Accordion Item 2 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <div class="accordion-trigger-left">
+                <span class="icon">🔄</span>
+                <h3>Proximity-Based Fallback Project Algorithm</h3>
               </div>
-              <div class="cs-evidence-info">
-                <div class="cs-evidence-query">"Harga Karpet Badminton"</div>
-                <div class="cs-evidence-platform">✦ Disitasi oleh AI</div>
-              </div>
-            </div>
-            <div class="cs-evidence-card">
-              <div class="cs-evidence-img">
-                <!-- Ganti dengan: <img src="images/ss-jual-karpet-badminton-terdekat.png" alt="Jual Karpet Badminton Terdekat - AI Citation"> -->
-                📷 Screenshot
-              </div>
-              <div class="cs-evidence-info">
-                <div class="cs-evidence-query">"Jual Karpet Badminton Terdekat"</div>
-                <div class="cs-evidence-platform">✦ Disitasi oleh AI</div>
-              </div>
-            </div>
-            <div class="cs-evidence-card">
-              <div class="cs-evidence-img">
-                <!-- Ganti dengan: <img src="images/ss-jasa-pemasangan-karpet-badminton.png" alt="Jasa Pemasangan Karpet Badminton - AI Citation"> -->
-                📷 Screenshot
-              </div>
-              <div class="cs-evidence-info">
-                <div class="cs-evidence-query">"Jasa Pemasangan Karpet Badminton"</div>
-                <div class="cs-evidence-platform">✦ Disitasi oleh AI</div>
-              </div>
-            </div>
-            <div class="cs-evidence-card">
-              <div class="cs-evidence-img">
-                <!-- Ganti dengan: <img src="images/ss-jual-vinyl-basket.png" alt="Jual Vinyl Basket - AI Citation"> -->
-                📷 Screenshot
-              </div>
-              <div class="cs-evidence-info">
-                <div class="cs-evidence-query">"Jual Vinyl Basket"</div>
-                <div class="cs-evidence-platform">✦ Disitasi oleh AI</div>
+              <span class="accordion-chevron">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <p>
+                  Bagaimana menampilkan portofolio relevan di kota yang belum pernah ditangani? Saya merancang algoritma
+                  pencarian bertingkat (cascading fallback) 6 tahapan di level controller:
+                </p>
+                <div class="code-block">
+                  <span class="comment">// 1. Cari kecocokan proyek di database untuk kota spesifik</span>
+                  $proyek = Proyek::active()->bySport($sport)->where(<span class="string">'slug'</span>,
+                  $slug)->first();
+
+                  <span class="comment">// 2. Jika tidak ada, deteksi wilayah (misal Jabodetabek cluster)</span>
+                  <span class="keyword">if</span> (!$proyek && $isJabodetabek) {
+                  $proyek = Proyek::active()->bySport($sport)->whereIn(<span class="string">'kota'</span>,
+                  $jabodetabekList)->first();
+                  }
+                  <span class="comment">// 3. Fallback bertahap: Satu Provinsi -> Satu Pulau/Regional -> Fallback
+                    Headquarter</span>
+                </div>
+                <p>
+                  <strong>Dampak:</strong> Halaman landing page kota-kota baru tidak pernah kosong (thin content) atau
+                  menampilkan error 404. Google mengindeksnya dengan sempurna karena halaman menyajikan data proyek
+                  terdekat yang bernilai tinggi bagi user lokal.
+                </p>
+                <div class="tech-badges-row">
+                  <span class="tech-badge-sub">Eloquent Logic</span>
+                  <span class="tech-badge-sub">Fallback Architecture</span>
+                  <span class="tech-badge-sub">Crawl Budget Optimization</span>
+                </div>
               </div>
             </div>
-            <div class="cs-evidence-card">
-              <div class="cs-evidence-img">
-                <!-- Ganti dengan: <img src="images/ss-kontraktor-pickleball.png" alt="Kontraktor Pickleball - AI Citation"> -->
-                📷 Screenshot
+          </div>
+
+          <!-- Accordion Item 3 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <div class="accordion-trigger-left">
+                <span class="icon">🎨</span>
+                <h3>Multi-Sport Theme System</h3>
               </div>
-              <div class="cs-evidence-info">
-                <div class="cs-evidence-query">"Kontraktor Pickleball"</div>
-                <div class="cs-evidence-platform">✦ Disitasi oleh AI</div>
+              <span class="accordion-chevron">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <p>
+                  Untuk memastikan visual landing page bervariasi mengikuti jenis cabang olahraga yang diklik, saya
+                  menerapkan dynamic theme mapping yang disimpan dalam file config terpisah (`themes.php`):
+                </p>
+                <div class="code-block">
+                  <span class="comment">// themes.php snippet</span>
+                  <span class="keyword">return</span> [
+                  <span class="string">'badminton'</span> => [
+                  <span class="string">'heading'</span> => <span class="string">'text-orange-600'</span>,
+                  <span class="string">'badge_bg'</span> => <span class="string">'bg-orange-50'</span>,
+                  <span class="string">'btn'</span> => <span class="string">'bg-orange-600 hover:bg-orange-700'</span>,
+                  ],
+                  <span class="string">'minisoccer'</span> => [
+                  <span class="string">'heading'</span> => <span class="string">'text-emerald-500'</span>,
+                  <span class="string">'badge_bg'</span> => <span class="string">'bg-emerald-50'</span>,
+                  <span class="string">'btn'</span> => <span class="string">'bg-emerald-600
+                    hover:bg-emerald-700'</span>,
+                  ]
+                  ];
+                </div>
+                <p>
+                  <strong>Dampak:</strong> 1 template Blade tunggal dapat me-render visual tema yang berbeda-beda tanpa
+                  duplikasi file CSS atau file view, meminimalkan memory footprint dan merapikan codebase.
+                </p>
+                <div class="tech-badges-row">
+                  <span class="tech-badge-sub">Configuration Mapping</span>
+                  <span class="tech-badge-sub">Design Token Reuse</span>
+                  <span class="tech-badge-sub">Tailwind CSS Dynamic</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion Item 4 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <div class="accordion-trigger-left">
+                <span class="icon">🗄️</span>
+                <h3>Penyimpanan Data Ringan dengan SQLite & JSON Casts</h3>
+              </div>
+              <span class="accordion-chevron">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <p>
+                  Demi kecepatan load yang maksimal, basis data SQLite digunakan karena sifatnya yang single-file dan
+                  ringan. Untuk menghindari query join yang rumit dan berat, schema proyek memanfaatkan model SQLite
+                  dengan column JSON untuk data FAQ, list area, dan asset metadata:
+                </p>
+                <div class="code-block">
+                  <span class="keyword">protected</span> <span class="variable">$casts</span> = [
+                  <span class="string">'active'</span> => <span class="string">'boolean'</span>,
+                  <span class="string">'stats'</span> => <span class="string">'array'</span>, <span class="comment">//
+                    JSON data: [{"value":"6","label":"Lapangan"}]</span>
+                  <span class="string">'faqs'</span> => <span class="string">'array'</span>, <span class="comment">//
+                    JSON data: [{"q":"...","a":"..."}]</span>
+                  <span class="string">'images'</span> => <span class="string">'array'</span>, <span class="comment">//
+                    JSON data: {"thumb1":"...", "thumb2":"..."}</span>
+                  ];
+                </div>
+                <p>
+                  <strong>Dampak:</strong> Data kompleks terenkapsulasi dalam satu row record proyek. Laravel secara
+                  otomatis mengkonversinya menjadi array manipulatif saat dipanggil di Blade template.
+                </p>
+                <div class="tech-badges-row">
+                  <span class="tech-badge-sub">SQLite Database</span>
+                  <span class="tech-badge-sub">Eloquent Casts</span>
+                  <span class="tech-badge-sub">Data Deserialization</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion Item 5 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <div class="accordion-trigger-left">
+                <span class="icon">🚀</span>
+                <h3>Granular Git & SCP Deployment Script</h3>
+              </div>
+              <span class="accordion-chevron">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <p>
+                  Tanpa server CI/CD yang mahal, saya merancang bash script otomatis untuk deploy granular ke Hostinger
+                  Shared Hosting via SSH/SCP. Script ini memastikan transfer file berjalan cepat dan aman, dilengkapi
+                  backup SQLite database otomatis sebelum file baru ditimpa.
+                </p>
+                <p>
+                  <strong>Dampak:</strong> Proses pembaruan sistem dari lokal ke live server hanya memakan waktu &lt; 30
+                  detik tanpa down-time, menjaga website tetap aktif melayani pengguna.
+                </p>
+                <div class="tech-badges-row">
+                  <span class="tech-badge-sub">SCP Transfer</span>
+                  <span class="tech-badge-sub">SSH Server Commands</span>
+                  <span class="tech-badge-sub">Backup Automation</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK SECTION -->
+  <section class="main-section reveal" id="keahlian">
+    <h2 class="section-title">Teknologi & Keahlian</h2>
+    <div class="tech-grid">
+      <!-- Item -->
+      <div class="tech-card">
+        <div class="tech-icon">🐘</div>
+        <div class="tech-name">Laravel / PHP</div>
+        <div class="tech-level">Daily Driver</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-icon">💾</div>
+        <div class="tech-name">SQLite / SQL</div>
+        <div class="tech-level">Daily Driver</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-icon">⚡</div>
+        <div class="tech-name">Alpine.js</div>
+        <div class="tech-level">Daily Driver</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-icon">🎨</div>
+        <div class="tech-name">Tailwind CSS</div>
+        <div class="tech-level">Daily Driver</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-icon">📦</div>
+        <div class="tech-name">Vite / Bundler</div>
+        <div class="tech-level">Daily Driver</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-icon">📈</div>
+        <div class="tech-name">Google Console / GA</div>
+        <div class="tech-level">SEO Tooling</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-icon">⚙️</div>
+        <div class="tech-name">Ahrefs</div>
+        <div class="tech-level">SEO Tooling</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-icon">🤖</div>
+        <div class="tech-name">GEO / AEO</div>
+        <div class="tech-level">Strategy</div>
+      </div>
+    </div>
+
+    <!-- Skills Breakdowns -->
+    <div class="skills-layout" style="margin-top: 3rem;">
+      <div class="skill-col">
+        <h3>Backend & Database</h3>
+        <ul class="skill-list">
+          <li class="skill-item">
+            <h4>Laravel Architecture</h4>
+            <p>Mahir mengimplementasikan custom routing, query scopes, Eloquent relation, dan dynamic config management.
+            </p>
+          </li>
+          <li class="skill-item">
+            <h4>Data Engineering</h4>
+            <p>Biasa menggunakan serialisasi data JSON casts dalam database relasional (SQLite/MySQL) untuk optimasi
+              query load speed.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h3>Modern Frontend</h3>
+        <ul class="skill-list">
+          <li class="skill-item">
+            <h4>Interactive UI</h4>
+            <p>Penggunaan Alpine.js untuk modular scripting, kalkulator interaktif, quiz flow, dan micro-interaction
+              tanpa overhead JS yang berat.</p>
+          </li>
+          <li class="skill-item">
+            <h4>Utility-First Styling</h4>
+            <p>Implementasi Tailwind CSS untuk layout responsif terstruktur yang berorientasi performa mobile-first.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h3>SEO / GEO Operations</h3>
+        <ul class="skill-list">
+          <li class="skill-item">
+            <h4>Sitemap & Indexing</h4>
+            <p>Mengintegrasikan dynamic sitemap generator yang terikat langsung ke model database untuk memicu
+              auto-index di Search Console.</p>
+          </li>
+          <li class="skill-item">
+            <h4>Generative Citation Strategy</h4>
+            <p>Merancang optimasi informasi semantik agar teks terbaca optimal oleh parser LLM (ChatGPT, Google Gemini).
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- CREDENTIALS SECTION -->
-  <section class="section" id="credentials">
-    <div class="eyebrow">Kredensial</div>
-    <h2>Pendidikan & Sertifikasi</h2>
-    <div class="credentials-grid">
-      <div class="cred-item">
-        <div class="cred-title">Pendidikan Formal</div>
-        <div class="cred-meta">Riwayat pendidikan yang relevan dengan pengembangan web, teknologi, dan dasar pemahaman bisnis.</div>
-        <div class="cred-stack">
-          <div class="cred-entry">
-            <div class="cred-period">2021-2026</div>
-            <div class="cred-degree">S1 Teknik Informatika</div>
-            <div class="cred-school">STT Terpadu Nurul Fikri · IPK 3.60 / 4.00</div>
-            <div class="cred-detail">Berfokus pada pengembangan website dan kecerdasan artifisial</div>
-          </div>
-          <div class="cred-entry">
-            <div class="cred-period">2017-2020</div>
-            <div class="cred-degree">SMK Negri 1 Cibinong</div>
-            <div class="cred-school">Bisnis Kontruksi & Properti</div>
-            <div class="cred-detail">Latar belakang bisnis properti dan lulus dengan baik</div>
-          </div>
+  <section class="main-section reveal" id="kredensial">
+    <h2 class="section-title">Pendidikan & Kredensial</h2>
+    <div class="cred-grid">
+      <!-- Pendidikan -->
+      <div class="cred-column">
+        <h3 class="cred-sub">🎓 Pendidikan Formal</h3>
+        <div class="cred-card">
+          <span class="cred-period">2021 - 2026</span>
+          <h4 class="cred-title">S1 Teknik Informatika</h4>
+          <p class="cred-org">STT Terpadu Nurul Fikri · IPK 3.60 / 4.00</p>
+          <p class="cred-desc">Spesialisasi Web Development, kecerdasan buatan, dan arsitektur database modern.</p>
+        </div>
+        <div class="cred-card">
+          <span class="cred-period">2017 - 2020</span>
+          <h4 class="cred-title">Konstruksi & Properti</h4>
+          <p class="cred-org">SMK Negeri 1 Cibinong</p>
+          <p class="cred-desc">Latar belakang industri properti dan konstruksi yang mendasari pemahaman bisnis
+            real-world.</p>
         </div>
       </div>
-      <div class="cred-item">
-        <div class="cred-title">Sertifikasi & Pelatihan</div>
-        <div class="cred-meta">Dokumen sertifikasi teknis.</div>
-        <div class="cred-stack">
-          <a class="cert-link" href="sertifikasi/Building_AI_Solutions_Using_Advanced_Algorithms_and_Open_Source_Frameworks_Badge20230828-28-d8hmol.pdf" target="_blank" rel="noopener">
-            <div class="cred-entry">
-              <div class="cred-period">Sertifikat 01</div>
-              <div class="cert-title">Building AI Solutions Using Advanced Algorithms and Open Source Frameworks</div>
-              <div class="cert-issuer">IBM / Technical Badge</div>
-              <div class="cert-open">Buka Sertifikat</div>
-            </div>
+
+      <!-- Sertifikasi -->
+      <div class="cred-column">
+        <h3 class="cred-sub">📜 Sertifikasi IBM & Data Science</h3>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <a href="sertifikasi/Building_AI_Solutions_Using_Advanced_Algorithms_and_Open_Source_Frameworks_Badge20230828-28-d8hmol.pdf"
+            class="cred-card" target="_blank">
+            <span class="cred-period">IBM Badge</span>
+            <h4 class="cred-title">Building AI Solutions Using Advanced Algorithms</h4>
+            <p class="cred-org">IBM Technical Certification</p>
+            <span class="cred-action">Buka Sertifikat ↗</span>
           </a>
-          <a class="cert-link" href="sertifikasi/Building_Trustworthy_AI_Enterprise_Solutions_Badge20230828-28-29epxi.pdf" target="_blank" rel="noopener">
-            <div class="cred-entry">
-              <div class="cred-period">Sertifikat 02</div>
-              <div class="cert-title">Building Trustworthy AI Enterprise Solutions</div>
-              <div class="cert-issuer">IBM / Technical Badge</div>
-              <div class="cert-open">Buka Sertifikat</div>
-            </div>
+          <a href="sertifikasi/Building_Trustworthy_AI_Enterprise_Solutions_Badge20230828-28-29epxi.pdf"
+            class="cred-card" target="_blank">
+            <span class="cred-period">IBM Badge</span>
+            <h4 class="cred-title">Building Trustworthy AI Enterprise Solutions</h4>
+            <p class="cred-org">IBM Technical Certification</p>
+            <span class="cred-action">Buka Sertifikat ↗</span>
           </a>
-          <a class="cert-link" href="sertifikasi/Enterprise_Security_in_Practice_Badge20230907-28-yux28o.pdf" target="_blank" rel="noopener">
-            <div class="cred-entry">
-              <div class="cred-period">Sertifikat 03</div>
-              <div class="cert-title">Enterprise Security in Practice</div>
-              <div class="cert-issuer">IBM / Technical Badge</div>
-              <div class="cert-open">Buka Sertifikat</div>
-            </div>
-          </a>
-          <a class="cert-link" href="sertifikasi/Getting_Started_with_Enterprise_grade_AI_Badge20230822-28-8h4b8n.pdf" target="_blank" rel="noopener">
-            <div class="cred-entry">
-              <div class="cred-period">Sertifikat 04</div>
-              <div class="cert-title">Getting Started with Enterprise-grade AI</div>
-              <div class="cert-issuer">IBM / Technical Badge</div>
-              <div class="cert-open">Buka Sertifikat</div>
-            </div>
-          </a>
-          <a class="cert-link" href="sertifikasi/Getting_Started_with_Threat_Intelligence_and_Hunting_Badge20230831-36-mcblod.pdf" target="_blank" rel="noopener">
-            <div class="cred-entry">
-              <div class="cred-period">Sertifikat 05</div>
-              <div class="cert-title">Getting Started with Threat Intelligence and Hunting</div>
-              <div class="cert-issuer">IBM / Technical Badge</div>
-              <div class="cert-open">Buka Sertifikat</div>
-            </div>
-          </a>
-          <a class="cert-link" href="sertifikasi/Python%20for%20Data%20Science%20-%20Izzuddin%20Ayyash.pdf" target="_blank" rel="noopener">
-            <div class="cred-entry">
-              <div class="cred-period">Sertifikat 06</div>
-              <div class="cert-title">Python for Data Science</div>
-              <div class="cert-issuer">Technical Certificate</div>
-              <div class="cert-open">Buka Sertifikat</div>
-            </div>
+          <a href="sertifikasi/Python%20for%20Data%20Science%20-%20Izzuddin%20Ayyash.pdf" class="cred-card"
+            target="_blank">
+            <span class="cred-period">Technical Certificate</span>
+            <h4 class="cred-title">Python for Data Science</h4>
+            <p class="cred-org">Data Science Academy</p>
+            <span class="cred-action">Buka Sertifikat ↗</span>
           </a>
         </div>
       </div>
@@ -1742,47 +1742,151 @@
 
   <!-- CONTACT / FOOTER -->
   <footer id="kontak">
-    <div class="footer-title">Mari Bangun Sesuatu Bersama</div>
-    <p class="footer-sub">Saya terbuka untuk kesempatan kerja full-time, proyek freelance, maupun kolaborasi strategis
-      di bidang Web Development & SEO.</p>
-    <div class="contact-actions">
+    <h2 class="footer-title">Mari Berdiskusi & Bekerja Sama</h2>
+    <p class="footer-sub">Saya terbuka untuk posisi full-time backend/fullstack developer, proyek custom website, maupun
+      konsultasi implementasi teknis SEO/GEO.</p>
+
+    <div class="contact-grid">
       <a href="mailto:izzudinayyash04@gmail.com" class="contact-card">
-        <span class="contact-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 6.5h16A1.5 1.5 0 0 1 21.5 8v8A1.5 1.5 0 0 1 20 17.5H4A1.5 1.5 0 0 1 2.5 16V8A1.5 1.5 0 0 1 4 6.5Z" />
-            <path d="m3 8 9 6 9-6" />
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
           </svg>
-        </span>
-        <span class="contact-copy">
+        </div>
+        <div class="contact-copy">
           <span class="contact-label">Email</span>
           <span class="contact-value">izzudinayyash04@gmail.com</span>
-        </span>
+        </div>
       </a>
+
       <a href="https://www.linkedin.com/in/izzuddinayyash/" class="contact-card" target="_blank" rel="noopener">
-        <span class="contact-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6.94 8.5a1.56 1.56 0 1 1 0-3.12 1.56 1.56 0 0 1 0 3.12ZM5.6 9.75h2.68v8.65H5.6V9.75Zm4.36 0h2.56v1.18h.04c.36-.68 1.23-1.4 2.53-1.4 2.7 0 3.2 1.77 3.2 4.07v4.8h-2.67v-4.25c0-1.01-.02-2.31-1.4-2.31-1.4 0-1.62 1.1-1.62 2.24v4.32H9.96V9.75Z" />
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
           </svg>
-        </span>
-        <span class="contact-copy">
+        </div>
+        <div class="contact-copy">
           <span class="contact-label">LinkedIn</span>
-          <span class="contact-value">LinkedIn Izzuddin Ayyash</span>
-        </span>
+          <span class="contact-value">izzuddinayyash</span>
+        </div>
       </a>
+
       <a href="https://wa.me/6285156384180" class="contact-card" target="_blank" rel="noopener">
-        <span class="contact-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.25a9.73 9.73 0 0 0-8.3 14.8L2.25 21.75l4.82-1.42A9.75 9.75 0 1 0 12 2.25Zm0 17.7a7.88 7.88 0 0 1-4.02-1.1l-.29-.17-2.86.84.87-2.78-.19-.3a7.87 7.87 0 1 1 6.49 3.51Zm4.33-5.91c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.17-.71-.63-1.2-1.41-1.34-1.65-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3s-.84.82-.84 2 .86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.65.58.25 1.03.39 1.38.5.58.18 1.1.16 1.52.1.46-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z" />
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" style="fill: none; stroke: currentColor;">
+            <path
+              d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+            </path>
           </svg>
-        </span>
-        <span class="contact-copy">
+        </div>
+        <div class="contact-copy">
           <span class="contact-label">WhatsApp</span>
           <span class="contact-value">085156384180</span>
-        </span>
+        </div>
       </a>
     </div>
-    <p class="footer-meta">&copy; 2026 Izzuddin Ayyash. All rights reserved.</p>
+
+    <div class="footer-divider"></div>
+    <p class="footer-meta">&copy; 2026 Izzuddin Ayyash. Handcrafted with modern vanilla HTML, CSS & JS.</p>
   </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Mobile navigation toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Navbar scroll background change (passive event listener for high performance scrolling)
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // Dynamic stats animation using requestAnimationFrame (liquid fluid animation with 0% scroll blocking)
+    const runCounters = () => {
+      const counters = document.querySelectorAll('.stat-num');
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const duration = 1200; // ms
+        const startTime = performance.now();
+
+        const updateCount = (now) => {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Easing out cubic curve
+          const easeProgress = 1 - Math.pow(1 - progress, 3);
+          const value = Math.floor(easeProgress * target);
+
+          counter.innerText = value + (target > 5 ? '+' : '');
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.innerText = target + (target > 5 ? '+' : '');
+          }
+        };
+        requestAnimationFrame(updateCount);
+      });
+    };
+
+    // Scroll reveal observer
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          if (entry.target.classList.contains('stats-bar')) {
+            runCounters();
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+
+    // Accordion interaction
+    const accordions = document.querySelectorAll('.accordion-trigger');
+    accordions.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.parentElement;
+        const content = trigger.nextElementSibling;
+        const isActive = item.classList.contains('active');
+
+        // Close all accordions
+        document.querySelectorAll('.accordion-item').forEach(accItem => {
+          accItem.classList.remove('active');
+          accItem.querySelector('.accordion-content').style.maxHeight = null;
+        });
+
+        // Open clicked accordion if it wasn't active
+        if (!isActive) {
+          item.classList.add('active');
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
 
 </body>
 
